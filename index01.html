@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>东风标致</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,shrink-to-fit=no">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<script>
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			audioAutoPlay('musicStar');
+		}, false);
+	</script>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		@media screen and (orientation: portrait) {
+			.box{background: pink; width: 100%; height: 100%;}
+			#portrait{
+				display:block;
+
+			}
+			#landscape{
+				display:none;
+			}
+		}
+		@media screen and (orientation: landscape) {
+			#portrait{
+				display:none;
+			}
+			#landscape{
+				display:block;
+			}
+			.box{background: deeppink; width: 100%; height: 100%;}
+
+
+			.box p{
+				margin: auto ;
+				margin-top : 20px ;
+				text-align: center;
+			}
+		}
+	</style>
+</head>
+<body>
+<div id="page-box" class="box">
+	<!--进度条页面-->
+	<div class="page01" id="loadingPage">
+		<div class="img-load-now">
+			<div class="bird-loading"></div>
+			<div class="mask"><span id="img-loading-txt"></span></div>
+		</div>
+	</div>
+	<div class="portrait" id="portrait">
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet autem deserunt, eos facilis
+			hic illum itaque maxime minus nam nobis odio possimus quae quis reiciendis tempore ut vel velit!
+		</div>
+		<div>Aliquid at blanditiis dicta doloremque dolores dolorum earum enim esse harum hic impedit, in maxime
+			minus nesciunt nobis nostrum numquam officiis possimus quaerat quam quidem, ratione, sunt tenetur
+			totam vero!
+		</div>
+		<div>Autem cupiditate deleniti voluptas voluptates. Accusantium adipisci alias, architecto atque autem
+			corporis dolorum et hic ipsa itaque molestias numquam quas quibusdam quisquam rem repellat
+			repellendus, repudiandae sed ut voluptatum? Consequuntur.
+		</div>
+		<div>Asperiores fugiat maiores non tempore voluptas. Ab accusantium assumenda, culpa cumque delectus
+			dolor dolore est harum itaque laboriosam libero, maiores maxime obcaecati odio optio provident
+			quaerat quidem sit tempora, tempore.
+		</div>
+	</div>
+	<!--横屏体验内容页面-->
+	<div class="box" id="landscape">
+		<p>lalalalal</p>
+		<!--留资-->
+		<div id="userInfo">
+			<ul>
+				<li>
+					<label for="name">
+						<input type="text" id="name" placeholder="姓名" autofocus="autofocus"/>
+					</label>
+				</li>
+				<li>
+					<label for="phone">
+						<input type="text" id="phone" placeholder="手机"/>
+					</label>
+				</li>
+				<li>
+					<select id="ddlProvince" name="ddlProvince" style="width: 66px" class="w50" onchange="crmCustCheckHelper.triggerProvince();">
+					</select>
+					<select id="ddlCity" name="ddlCity" class="w50" >
+						<option value="-1">城市</option>
+					</select>
+				</li>
+				<li>
+					<select name="carType" id="">
+						<option value="">意向车型</option>
+						<option value="4008">4008</option>
+						<option value="3008">3008</option>
+						<option value="2008">2008</option>
+					</select>
+				</li>
+				<li><button id="btn-userInfo">提交</button></li>
+				<li id="height-value"></li>
+			</ul>
+		</div>
+		<!--抽奖-->
+		<div id="prize">
+			<button id="btn-prize">点击抽奖</button>
+		</div>
+	</div>
+
+	<!--音乐-->
+	<audio src="" id="musicStar"  loop="loop" preload="load" autoplay="autoplay"></audio>
+	<audio src="" id="musicChange" loop="loop" preload="load"></audio>
+</div>
+</body>
+<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/Area2.js"></script>
+<script src="js/Common.js"></script>
+<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="js/style.js" type="text/javascript" charset="utf-8"></script>-->
+<script type="text/javascript">
+	//		 function audioAutoPlay(id){
+	//			var audio = document.getElementById(id),
+	//					play = function(){
+	//						audio.play();
+	//						document.removeEventListener("touchstart",play, false);
+	//					};
+	//			audio.play();
+	//			document.addEventListener("touchstart",play, false);
+	//   	 	}
+	//    	var isAppInside=/micromessenger/i.test(navigator.userAgent.toLowerCase())||/yixin/i.test(navigator.userAgent.toLowerCase());
+
+	//window.addEventListener('orientationchange', function(event){
+	//	if ( window.orientation == 180 || window.orientation==0 ) {
+	//		alert("竖屏");
+	//	}
+	//	if( window.orientation == 90 || window.orientation == -90 ) {
+	//		alert("横屏");
+	//	}
+	//});
+	$(function () {
+		BindProvince('ddlProvince'); //绑定省份
+	});
+
+	var crmCustCheckHelper = (function () {
+		var triggerProvince = function () {//选中省份
+			BindCity('ddlProvince', 'ddlCity');
+		};
+
+		return {
+			triggerProvince: triggerProvince
+
+		};
+	})();
+	$('#btn-prize').click(function(){
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+		$('#height-value').html(w+'----'+h);
+	})
+</script>
+</html>
