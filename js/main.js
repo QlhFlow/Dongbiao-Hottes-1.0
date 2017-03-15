@@ -1,15 +1,15 @@
 /**
  * Created by jiangqian on 2017/1/12.
  */
-var musicStar = document.getElementById('musicStar');
-var musicChange = document.getElementById('musicChange');
-$(function(){
-    var musicStar = document.getElementById('musicStar');
-    var musicChange = document.getElementById('musicChange');
-    musicStar.load();
-    musicStar.src="res/music-one.mp3";
-    musicStar.play();
-});
+//var musicStar = document.getElementById('musicStar');
+//var musicChange = document.getElementById('musicChange');
+//$(function(){
+//    var musicStar = document.getElementById('musicStar');
+//    var musicChange = document.getElementById('musicChange');
+//    musicStar.load();
+//    musicStar.src="res/music-one.mp3";
+//    musicStar.play();
+//});
 /***�ж�ͼƬ�Ƿ������ɡ����ٷֱ���ʾ**/
 function funImgLoading(containID,txtID,fnComplete) {
     if (sessionStorage.getItem("pageloaded")=="true") {
@@ -102,7 +102,7 @@ funImgLoading("page-box","img-loading-txt",function(){
     function refresh(){
         var width = docEl.getBoundingClientRect().width;
         if(hasRem){
-            var rem = width/75;
+            var rem = width/10;
             docEl.style.fontSize = rem + "px";
             remCalc.rem = rem;
             var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
@@ -148,7 +148,7 @@ funImgLoading("page-box","img-loading-txt",function(){
 })(window);
 
 	//音乐暂停播放
-    musicStar.pause();
-    musicChange.play();
+    //musicStar.pause();
+    //musicChange.play();
 
 
