@@ -147,112 +147,110 @@
 		}
 		if (window.orientation === 90 || window.orientation === -90 ){
 			alert('横屏状态！');
-		}
-	}, false);
-	$('#btn-prize').click(function(){
-		var w = window.innerWidth;
-		var h = window.innerHeight;
-		$('#height-value').html(w+'----'+h);
-	});
-	var SaveInfo = {
-		username:null,
-		phone:null,
-		province:null,
-		city:null,
-		agency:null,
-		cartype:null,
-		init:function(){
-			this.updateView();
-		},
-		updateView:function(){
-			SaveInfo.inputReg();
-			SaveInfo.submit();
-		},
-		inputReg:function(){
-			$('input[name="username"]').blur(function(){
-				if(this.validity.valid){
-					$('input[name="username"]').removeClass('red');
-				}else{
-					$('input[name="username"]').addClass('red');
-				}
+			$('#btn-prize').click(function(){
+				var w = window.innerWidth;
+				var h = window.innerHeight;
+				$('#height-value').html(w+'----'+h);
 			});
-			$('input[name="username"]').focus(function(){
-				if(this.validity.valid) {
-					$('input[name="username"]').removeClass('red');
-				}else{
-					$('input[name="username"]').addClass('red');
-				}
-			});
-			$('input[name="phone"]').blur(function(){
-				var reg = /^1[34578]\d{9}$/;
-				var val = $(this).val();
-				if(reg.test(val)){
-					$(this).removeClass('red');
-				}else{
-					$(this).addClass('red');
-				}
-			});
-			$('input[name="phone"]').focus(function(){
-				$(this).keyup(function(){
-					if(this.validity.valid){
-						$(this).removeClass('red');
+			var SaveInfo = {
+				username:null,
+				phone:null,
+				province:null,
+				city:null,
+				agency:null,
+				cartype:null,
+				init:function(){
+					this.updateView();
+				},
+				updateView:function(){
+					SaveInfo.inputReg();
+					SaveInfo.submit();
+				},
+				inputReg:function(){
+					$('input[name="username"]').blur(function(){
+						if(this.validity.valid){
+							$('input[name="username"]').removeClass('red');
+						}else{
+							$('input[name="username"]').addClass('red');
+						}
+					});
+					$('input[name="username"]').focus(function(){
+						if(this.validity.valid) {
+							$('input[name="username"]').removeClass('red');
+						}else{
+							$('input[name="username"]').addClass('red');
+						}
+					});
+					$('input[name="phone"]').blur(function(){
+						var reg = /^1[34578]\d{9}$/;
+						var val = $(this).val();
+						if(reg.test(val)){
+							$(this).removeClass('red');
+						}else{
+							$(this).addClass('red');
+						}
+					});
+					$('input[name="phone"]').focus(function(){
+						$(this).keyup(function(){
+							if(this.validity.valid){
+								$(this).removeClass('red');
+							}else{
+								$(this).addClass('red');
+							}
+						})
+					});
+				},
+				clickReg:function(){
+					var usernameReg = false,phoneReg = false,provinceReg = false,cityReg = false,agencyReg = false,cartypeReg = false;
+					var inputUsername = document.getElementById('username');
+					if(inputUsername.validity.valid){
+						usernameReg = true;
 					}else{
-						$(this).addClass('red');
+						usernameReg = false;
 					}
-				})
-			});
-		},
-		clickReg:function(){
-			var usernameReg = false,phoneReg = false,provinceReg = false,cityReg = false,agencyReg = false,cartypeReg = false;
-			var inputUsername = document.getElementById('username');
-			if(inputUsername.validity.valid){
-				usernameReg = true;
-			}else{
-				usernameReg = false;
-			}
-			var reg = /^1[34578]\d{9}$/;
-			if(reg.test($('input[name="phone"]').val())){
-				phoneReg = true;
-			}else{
-				phoneReg = false;
-			}
-			function selectReg(selectName){
-				var val = $('select[name='+selectName+'] option:selected').val();
-				var reg;
-				if(val&&val!=-1){
-					reg = true;
-				}else{
-					reg = false;
-				}
-				return reg;
-			}
-			provinceReg = selectReg('ddlProvince');
-			cityReg = selectReg('ddlCity');
-			agencyReg = selectReg('agency');
-			cartypeReg = selectReg('cartype');
-			var total = usernameReg&&phoneReg&&provinceReg&&cityReg&&agencyReg&&cartypeReg;
-			console.log(usernameReg,phoneReg,provinceReg,cityReg,agencyReg,cartypeReg);
-			return total;
-		},
-		submit:function(){
-			$('#btn-userInfo').click(function(e){
-				e.preventDefault();
-				if(SaveInfo.clickReg()){
-					SaveInfo.username = $('input[name="username"]').val();
-					SaveInfo.phone = $('input[name="phone"]').val();
-					SaveInfo.province = $('select[name="ddlProvince"] option:selected').val();
-					SaveInfo.city = $('select[name="ddlCity"] option:selected').val();
-					SaveInfo.agency = $('select[name="agency"] option:selected').val();
-					SaveInfo.cartype = $('select[name="cartype"] option:selected').val();
-					var data = {
-						username:SaveInfo.username,
-						phone:SaveInfo.phone,
-						province:SaveInfo.province,
-						city:SaveInfo.city,
-						agency:SaveInfo.agency,
-						cartype:SaveInfo.cartype
-					};
-					console.log(data);
+					var reg = /^1[34578]\d{9}$/;
+					if(reg.test($('input[name="phone"]').val())){
+						phoneReg = true;
+					}else{
+						phoneReg = false;
+					}
+					function selectReg(selectName){
+						var val = $('select[name='+selectName+'] option:selected').val();
+						var reg;
+						if(val&&val!=-1){
+							reg = true;
+						}else{
+							reg = false;
+						}
+						return reg;
+					}
+					provinceReg = selectReg('ddlProvince');
+					cityReg = selectReg('ddlCity');
+					agencyReg = selectReg('agency');
+					cartypeReg = selectReg('cartype');
+					var total = usernameReg&&phoneReg&&provinceReg&&cityReg&&agencyReg&&cartypeReg;
+					console.log(usernameReg,phoneReg,provinceReg,cityReg,agencyReg,cartypeReg);
+					return total;
+				},
+				submit:function(){
+					$('#btn-userInfo').click(function(e){
+						e.preventDefault();
+						if(SaveInfo.clickReg()){
+							SaveInfo.username = $('input[name="username"]').val();
+							SaveInfo.phone = $('input[name="phone"]').val();
+							SaveInfo.province = $('select[name="ddlProvince"] option:selected').val();
+							SaveInfo.city = $('select[name="ddlCity"] option:selected').val();
+							SaveInfo.agency = $('select[name="agency"] option:selected').val();
+							SaveInfo.cartype = $('select[name="cartype"] option:selected').val();
+							var data = {
+								username:SaveInfo.username,
+								phone:SaveInfo.phone,
+								province:SaveInfo.province,
+								city:SaveInfo.city,
+								agency:SaveInfo.agency,
+								cartype:SaveInfo.cartype
+							};
+							console.log(data);
 //					$.ajax({
 //						url:'dddd',
 //						type:'post',
@@ -264,13 +262,16 @@
 //							}
 //						}
 //					})
+						}
+					})
 				}
-			})
+			};
+
+			ProvinceData.init('ddlProvince', 'ddlCity','agency');
+			SaveInfo.init();
+
 		}
-	};
-	$(function(){
-		ProvinceData.init('ddlProvince', 'ddlCity','agency');
-		SaveInfo.init();
-	})
+	}, false);
+
 </script>
 </html>
