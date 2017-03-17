@@ -50,27 +50,9 @@
 	</body>
 	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
-	<!--<script src="js/style.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="js/style.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-var w = window.innerWidth;
-var h = window.innerHeight;
-var musicStar = document.getElementById('musicStar');
-$("body").css({"width":w,"height":h});
-$(function () {
-	//动画开始播放音乐
-	musicStar.load();
-    musicStar.src="video/You.mp3";
-    musicStar.play();
-});
-$(".open").click(function(){
-	musicStar.pause();
-	$(this).css("display","none");
-	$(".clock").css("display","block");
-});
-$(".clock").click(function(){
-	musicStar.play();
-	$(this).css("display","none");
-	$(".open").css("display","block");
-})
+		var w = window.innerWidth;
+		var h = window.innerHeight;
 	</script>
 </html>
