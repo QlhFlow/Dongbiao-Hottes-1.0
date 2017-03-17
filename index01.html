@@ -49,8 +49,6 @@
    		</div>
 	</body>
 	<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/Area2.js"></script>
-	<script src="js/Common.js"></script>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 	<!--<script src="js/style.js" type="text/javascript" charset="utf-8"></script>-->
 	<script type="text/javascript">
@@ -63,30 +61,12 @@ $(function () {
 	musicStar.load();
     musicStar.src="video/You.mp3";
     musicStar.play();
-	
-	BindProvince('ddlProvince'); //绑定省份
 });
-
-var crmCustCheckHelper = (function () {
-	var triggerProvince = function () {//选中省份
-				BindCity('ddlProvince', 'ddlCity');
-			};
-
-	return {
-		triggerProvince: triggerProvince
-
-	};
-})();
-		$('#btn-prize').click(function(){
-			
-			$('#height-value').html(w+'----'+h);
-		})
-		
 $(".open").click(function(){
 	musicStar.pause();
 	$(this).css("display","none");
 	$(".clock").css("display","block");
-})
+});
 $(".clock").click(function(){
 	musicStar.play();
 	$(this).css("display","none");
