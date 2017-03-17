@@ -1,0 +1,67 @@
+/*reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+html, body { position: relative;height: 100%;width: 100%;}
+/*********竖屏********/
+@media screen and (orientation: portrait) { 
+            .box{width: 100%;height: 100%;}     
+            body{background:black;}     
+            #portrait{display:block;height: 100%;width: 100%;margin: auto;text-align: center;}
+            #landscape{ display:none;}
+            h3{font-family: '方正兰亭超细黑简体'; font-size: 36/75rem; color: rgb(109,183,196);margin-bottom:60%;position: absolute;left: 258/75rem;top: 768/75rem;} 
+            .h3-2{position: absolute;left: 258/75rem;left: 238/75rem;top: 830/75rem;}     
+            .one-phone{width:142/75rem; height:297/75rem;position: absolute;left: 375/75rem;top:349/75rem;} 
+            .one-phone2{width:142/75rem; height:297/75rem;position: absolute;left: 375/75rem;top:349/75rem;animation: left 2s linear infinite; -webkit-animation: left 4s linear infinite;}            
+            @-webkit-keyframes left{
+                0%{
+                   -webkit-transform: rotateZ(0deg); 
+                   -webkit-transform-origin: left bottom; 
+                   transform-origin: left bottom; 
+                }
+                25%{
+                    -webkit-transform: rotateZ(-90deg); 
+                     -webkit-transform-origin: left bottom; 
+                     transform-origin: left bottom; 
+                }
+                50%{
+                    -webkit-transform: rotateZ(0deg); 
+                    -webkit-transform-origin: left bottom; 
+                     transform-origin: left bottom; 
+                }
+                75%{
+                     -webkit-transform: rotateZ(-90deg); 
+                     -webkit-transform-origin: left bottom; 
+                     transform-origin: left bottom; 
+                }
+                100%{
+                    -webkit-transform: rotateZ(0deg);
+                    -webkit-transform-origin: left bottom; 
+                     transform-origin: left bottom;  
+                }
+            }         
+}
+
+/*********横屏********/
+@media screen and (orientation: landscape) {
+            #portrait{display:none; }
+            #landscape{display:block; position: relative;}
+            body{background: black;} 
+            .btn-music{width: 53/133.4rem; height: 54/133.4rem;position: absolute; top:10/133.4rem; left: 1250/133.4rem;}  
+            .music{width:100%; height: 100%;}          
+}            
+    
