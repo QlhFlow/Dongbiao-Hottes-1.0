@@ -75,8 +75,10 @@
 	<!--横屏体验内容页面-->
 	<div class="box" id="landscape">
 		<!--留资-->
+		<button id="gotoInfo">马上报名</button>
 		<div id="userInfo">
-			<div class="userInfo-box" >
+			<div id="userInfo-box" class="userInfo-box" >
+				<span  class="close">×</span>
 				<p class="userInfo-title">报名注册</p>
 				<p class="userInfo-tip">填写完整个人信息，即有机会赢取行圆汽车提供的精美礼品。</p>
 				<ul class="input-form-left input-form">
@@ -126,9 +128,10 @@
 					</li>
 				</ul>
 				<div id="btn-userInfo">提&nbsp;&nbsp;&nbsp;交</div>
-				<a href="" ><i>活动详情</i></a>
+				<a id="rule-icon" ><i>活动详情</i></a>
 			</div>
 			<div id="actionRules" class="action-rules">
+				<span id="close-rules" class="close">×</span>
 				<h1><i>X008SUV盛会</i></h1>
 				<h2>活动说明：</h2>
 				<h4>2017年4月1日至2017年4月21日，东风标致“0”息“0”税“0”元保养回馈活动倾情开启，参与活动即有机会赢取丰厚大奖！</h4>
@@ -152,15 +155,34 @@
 					5、如果2个月内汽车大全无法联系到您，且您也没有主动反馈个人获奖信息，则视为您主动放弃获奖资格，奖品亦不予保留。<br/>
 					6、礼品验收：签收时需对产品进行验货，如因快递原因造成的货物损坏需拒签，签收则视为验货无问题。<br/>
 				</h4>
-
+			</div>
+			<div id="prizeResult"  class="prize-result">
+				<span id="close-prize" class="close">×</span>
+				<div class="prize-result-info">
+					<h1 class="notGet"><i>很抱歉，您没有中奖</i></h1>
+					<p>谢谢您的参与</p>
+				</div>
 			</div>
 		</div>
-		<!--抽奖-->
-		<div id="prize">
-			<button id="btn-prize">点击抽奖</button>
-		</div>
 	</div>
-
+	<script>
+		$('#gotoInfo').click(function(e){
+			e.preventDefault();
+			$('#userInfo').show();
+			$('#userInfo-box').show();
+			$('#rule-icon').click(function(){
+				$('#userInfo-box').hide();
+				$('#actionRules').show();
+			});
+			$('#close-rules').click(function(){
+				$('#userInfo-box').show();
+				$('#actionRules').hide();
+			});
+			$('#close-prize').click(function(){
+				$('#userInfo').hide();
+			})
+		})
+	</script>
 	<!--音乐-->
 	<audio src="" id="musicStar"  loop="loop" preload="load" autoplay="autoplay"></audio>
 	<audio src="" id="musicChange" loop="loop" preload="load"></audio>
