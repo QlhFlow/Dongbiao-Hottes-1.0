@@ -4,7 +4,6 @@
     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
         if (window.orientation === 180 || window.orientation === 0) {
             //alert('竖屏状态！');
-
             if(musicStar.played){
                 musicStar.pause();
             }
@@ -22,11 +21,6 @@
             document.addEventListener("WeixinJSBridgeReady", function () {
                 audioAutoPlay('musicStar');
             }, false);
-            //document.addEventListener('touchstart',function(){
-            //    if(musicStar.paused){
-            //        musicStar.play();
-            //    }
-            //});
             var firstTouch = true;
             $('body').bind("touchstart",function(e){
                 if ( firstTouch ) {

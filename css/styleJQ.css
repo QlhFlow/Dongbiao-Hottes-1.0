@@ -78,7 +78,9 @@ select {
 }
 .userInfo-box .input-form li select {
   padding-left: 0.97451274rem;
+  -webkit-padding-left: 0.97451274rem;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
@@ -137,7 +139,7 @@ select {
   font-size: 0.17991004rem;
 }
 .close {
-  position: absolute;
+  position: fixed;
   top: 3px;
   right: 3px;
   border-radius: 50%;
