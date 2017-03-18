@@ -123,13 +123,14 @@ var SaveInfo = {
 $(function(){
     ProvinceData.init('ddlProvince', 'ddlCity','agency');
     SaveInfo.init();
-    var w = window.innerWidth;
-    var h = window.innerHeight;
+    
     $('#close-userInfo').click(function(){
         $('#userInfo').hide();
     });
     $('#gotoInfo').click(function(e){
         e.preventDefault();
+        var w = window.innerWidth;
+    var h = window.innerHeight;
         $('#userInfo').css({'width':w,'height':h}).show();
         $('#userInfo-box').show();
         $('#rule-icon').click(function(){
