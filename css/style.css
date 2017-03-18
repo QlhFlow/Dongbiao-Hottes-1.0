@@ -161,7 +161,7 @@ body {
 }
 /*********竖屏********/
 @media screen and (orientation: portrait) {
-  .page-box {
+  #page-box {
     width: 100%;
     height: 100%;
   }
