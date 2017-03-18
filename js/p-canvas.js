@@ -2352,7 +2352,7 @@
 
 			function fl_ClickToGoToAndPlayFromFrame_3()
 			{
-				console.log(666);
+
 				this.play();
 				this.button_4.removeEventListener('click');
 			}
@@ -2375,7 +2375,7 @@
 				//alert("已单击鼠标");
 				// 结束您的自定义代码
 				$('#ending').show();
-				$('#animation_container').hide();
+				$('#animation_container').fadeOut();
 
 
 			}

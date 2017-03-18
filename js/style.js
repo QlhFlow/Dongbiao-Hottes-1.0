@@ -4,6 +4,7 @@
     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
         if (window.orientation === 180 || window.orientation === 0) {
             //alert('竖屏状态！');
+
             if(musicStar.played){
                 musicStar.pause();
             }
@@ -16,7 +17,7 @@
               init();
           });
 
-			$("#portrait").css("display","none");
+            $("#portrait").css("display","none");
 			$("body").css({"width":w,"height":h});
             document.addEventListener("WeixinJSBridgeReady", function () {
                 audioAutoPlay('musicStar');
