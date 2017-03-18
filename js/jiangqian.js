@@ -18,33 +18,33 @@ var SaveInfo = {
     inputReg:function(){
         $('input[name="username"]').blur(function(){
             if(this.validity.valid){
-                $('input[name="username"]').removeClass('red');
+                $('input[name="username"]').parent().removeClass('red');
             }else{
-                $('input[name="username"]').addClass('red');
+                $('input[name="username"]').parent().addClass('red');
             }
         });
         $('input[name="username"]').focus(function(){
             if(this.validity.valid) {
-                $('input[name="username"]').removeClass('red');
+                $('input[name="username"]').parent().removeClass('red');
             }else{
-                $('input[name="username"]').addClass('red');
+                $('input[name="username"]').parent().addClass('red');
             }
         });
         $('input[name="phone"]').blur(function(){
             var reg = /^1[34578]\d{9}$/;
             var val = $(this).val();
             if(reg.test(val)){
-                $(this).removeClass('red');
+                $(this).parent().removeClass('red');
             }else{
-                $(this).addClass('red');
+                $(this).parent().addClass('red');
             }
         });
         $('input[name="phone"]').focus(function(){
             $(this).keyup(function(){
                 if(this.validity.valid){
-                    $(this).removeClass('red');
+                    $(this).parent().removeClass('red');
                 }else{
-                    $(this).addClass('red');
+                    $(this).parent().addClass('red');
                 }
             })
         });

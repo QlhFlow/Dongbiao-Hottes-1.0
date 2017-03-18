@@ -2374,7 +2374,7 @@
 				// 此示例代码在"输出"面板中显示"已单击鼠标"。
 				//alert("已单击鼠标");
 				// 结束您的自定义代码
-				$('#ending').show();
+				$('#ending').fadeIn();
 				$('#animation_container').fadeOut();
 
 
