@@ -166,22 +166,7 @@
 		</div>
 	</div>
 	<script>
-		$('#gotoInfo').click(function(e){
-			e.preventDefault();
-			$('#userInfo').show();
-			$('#userInfo-box').show();
-			$('#rule-icon').click(function(){
-				$('#userInfo-box').hide();
-				$('#actionRules').show();
-			});
-			$('#close-rules').click(function(){
-				$('#userInfo-box').show();
-				$('#actionRules').hide();
-			});
-			$('#close-prize').click(function(){
-				$('#userInfo').hide();
-			})
-		})
+
 	</script>
 	<!--音乐-->
 	<audio src="" id="musicStar"  loop="loop" preload="load" autoplay="autoplay"></audio>
@@ -336,6 +321,22 @@
 $(function(){
 	ProvinceData.init('ddlProvince', 'ddlCity','agency');
 	SaveInfo.init();
+			$('#gotoInfo').click(function(e){
+			e.preventDefault();
+			$('#userInfo').show();
+			$('#userInfo-box').show();
+			$('#rule-icon').click(function(){
+				$('#userInfo-box').hide();
+				$('#actionRules').show();
+			});
+			$('#close-rules').click(function(){
+				$('#userInfo-box').show();
+				$('#actionRules').hide();
+			});
+			$('#close-prize').click(function(){
+				$('#userInfo').hide();
+			})
+		})
 });
 
 

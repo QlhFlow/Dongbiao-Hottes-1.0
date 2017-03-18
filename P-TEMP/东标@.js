@@ -1,9 +1,70 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
+lib.webFontTxtInst = {}; 
+var loadedTypekitCount = 0;
+var loadedGoogleCount = 0;
+var gFontsUpdateCacheList = [];
+var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
+
+lib.updateListCache = function (cacheList) {		
+	for(var i = 0; i < cacheList.length; i++) {		
+		if(cacheList[i].cacheCanvas)		
+			cacheList[i].updateCache();		
+	}		
+};		
+
+lib.addElementsToCache = function (textInst, cacheList) {		
+	var cur = textInst;		
+	while(cur != exportRoot) {		
+		if(cacheList.indexOf(cur) != -1)		
+			break;		
+		cur = cur.parent;		
+	}		
+	if(cur != exportRoot) {		
+		var cur2 = textInst;		
+		var index = cacheList.indexOf(cur);		
+		while(cur2 != cur) {		
+			cacheList.splice(index, 0, cur2);		
+			cur2 = cur2.parent;		
+			index++;		
+		}		
+	}		
+	else {		
+		cur = textInst;		
+		while(cur != exportRoot) {		
+			cacheList.push(cur);		
+			cur = cur.parent;		
+		}		
+	}		
+};		
+
+lib.gfontAvailable = function(family, totalGoogleCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
+
+	loadedGoogleCount++;		
+	if(loadedGoogleCount == totalGoogleCount) {		
+		lib.updateListCache(gFontsUpdateCacheList);		
+	}		
+};		
+
+lib.tfontAvailable = function(family, totalTypekitCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
+
+	loadedTypekitCount++;		
+	if(loadedTypekitCount == totalTypekitCount) {		
+		lib.updateListCache(tFontsUpdateCacheList);		
+	}		
+};
 // symbols:
 
 
@@ -820,7 +881,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,1334,646);
 	this.shape_1.setTransform(62.8,71.7,0.517,0.517);
 
 	this.shape_2 = new cjs.Shape();
-	this.shape_2.graphics.f().s("#32FFEB").ss(2).p("AE4gUQgBADgCACIADgFIAAAAQAGgKAEgNQAKghgNgTQgNgUgTgGQgNgEgjAAIAUgMQAUgPAAgNQAAhQgUAAIiagEAkOgtQgIAKgKARQgWAggLAjQglBvBJBSIAkgCQAugCArAGQBIAKAwgHQBQgNBjg8IBJgDQBLgIAMgTQANgSgFgXIgIgTIAXgZQAUgegNgZQgMgXgFgB");
+	this.shape_2.graphics.f().s("#32FFEB").ss(2).p("AE4gUQAGgKAEgNQAKghgNgTQgNgUgTgGQgNgEgjAAIAUgMQAUgPAAgNQAAhQgUAAIiagEAE4gUQgBADgCACIADgFgAkOgtQgIAKgKARQgWAggLAjQglBvBJBSIAkgCQAugCArAGQBIAKAwgHQBQgNBjg8IBJgDQBLgIAMgTQANgSgFgXIgIgTIAXgZQAUgegNgZQgMgXgFgB");
 	this.shape_2.setTransform(86.9,64.3,0.517,0.517);
 
 	this.shape_3 = new cjs.Shape();
@@ -1583,82 +1644,82 @@ p.nominalBounds = new cjs.Rectangle(-2.9,-3.2,92.8,201.4);
 	// 图层 2
 	this.instance = new lib.元件7();
 	this.instance.parent = this;
-	this.instance.setTransform(156.5,82.2,1,1,0,0,0,62.1,17.4);
+	this.instance.setTransform(156.3,97.3,0.972,0.972,0,0,0,62.1,17.4);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:-37,x:154,y:100.7},4).to({rotation:-59,x:153,y:86.7},5).to({regY:17.6,rotation:-74,x:153.2,y:83.8},4).to({regY:17.5,rotation:-38.3,x:155.1,y:102.8},6).to({regX:62.2,rotation:-14,x:155.2,y:78.7},6).to({regX:62.3,scaleX:1,scaleY:1,rotation:-7,x:156,y:80.5},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:-37,x:153.9,y:115.3},4).to({regY:17.5,rotation:-59,x:153,y:101.7},5).to({regY:17.6,rotation:-74,x:153.1,y:98.9},4).to({rotation:-38.3,x:155,y:117.4},6).to({regX:62.3,regY:17.5,rotation:-14,x:155.1,y:93.9},6).to({regX:62.4,scaleX:0.97,scaleY:0.97,rotation:-7,x:155.9,y:95.6},2).wait(1));
 
 	// 图层 3
 	this.instance_1 = new lib.元件15();
 	this.instance_1.parent = this;
-	this.instance_1.setTransform(190,83.2,1,1,-8,0,0,22.7,13.4);
+	this.instance_1.setTransform(188.9,98.5,0.972,0.972,-8,0,0,22.7,13.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).to({regX:22.8,rotation:7.5,x:181.6,y:105.3},4).to({regX:22.9,regY:13.3,rotation:30.6,x:185.1,y:89.3},5).to({rotation:38,x:182.1,y:79.2},4).to({rotation:45.6,y:108.3},6).to({rotation:6.8,x:184.2,y:80.1},6).to({regX:23,regY:13.4,rotation:-3,x:187.1,y:81.8},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).to({regX:22.8,regY:13.4,rotation:7.5,x:180.6,y:119.8},4).to({regX:22.9,regY:13.3,rotation:30.6,x:184.1,y:104.2},5).to({rotation:38,x:181.2,y:94.5},4).to({rotation:45.6,y:122.7},6).to({regY:13.4,rotation:6.8,x:183.2,y:95.5},6).to({regX:23,regY:13.5,scaleX:0.97,scaleY:0.97,rotation:-3,x:186.1,y:97.1},2).wait(1));
 
 	// 图层 4
 	this.instance_2 = new lib.元件10();
 	this.instance_2.parent = this;
-	this.instance_2.setTransform(149.5,184.3,1,1,0,0,0,27.3,16.6);
+	this.instance_2.setTransform(149.5,196.6,0.972,0.972,0,0,0,27.3,16.6);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).to({regX:27.4,regY:16.8,rotation:8.5,x:152.4,y:194.3},4).to({regY:16.7,rotation:54,x:156,y:187.6},5).to({regY:16.6,rotation:45.2,x:151.9,y:184.8},4).to({regY:16.7,rotation:0.2,x:156.1,y:213.7},6).to({regX:27.5,rotation:-4.3,x:160.2,y:191.2},6).to({regX:27.6,rotation:-2,x:155.1,y:187.8},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).to({regX:27.4,regY:16.9,rotation:8.5,x:152.3,y:206.4},4).to({regY:16.7,rotation:54,x:155.8,y:199.8},5).to({regY:16.6,rotation:45.2,x:151.8,y:197},4).to({regX:27.5,regY:16.8,rotation:0.2,x:155.9,y:225.2},6).to({rotation:-4.3,x:159.9,y:203.4},6).to({regX:27.6,regY:16.7,scaleX:0.97,scaleY:0.97,rotation:-2,x:154.9,y:200},2).wait(1));
 
 	// 图层 5
 	this.instance_3 = new lib.元件14();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(144.2,193,1,1,0,0,0,31.4,8.7);
+	this.instance_3.setTransform(144.3,205.1,0.972,0.972,0,0,0,31.4,8.8);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).to({regY:8.8,rotation:-21.2,x:144.3,y:200},4).to({regX:31.5,rotation:-51.2,x:151.7,y:193},5).to({regX:31.6,scaleX:1.13,scaleY:1.13,rotation:-36.2,x:153.9,y:184.8},4).to({scaleX:1.05,scaleY:1.05,rotation:-31.7,x:156.8,y:217.1},6).to({rotation:13.3,x:156.9,y:192.2},6).to({regX:31.7,scaleX:1.02,scaleY:1.02,rotation:6.5,x:150.6,y:192.7},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).to({rotation:-21.2,x:144.4,y:211.8},4).to({rotation:-51.2,x:151.6,y:205.1},5).to({regX:31.6,scaleX:1.1,scaleY:1.1,rotation:-36.2,x:153.7,y:197},4).to({regY:8.9,scaleX:1.02,scaleY:1.02,rotation:-31.7,x:156.7,y:228.5},6).to({rotation:13.3,x:156.6,y:204.3},6).to({regX:31.7,scaleX:1,scaleY:1,rotation:6.5,x:150.6,y:204.8},2).wait(1));
 
 	// 图层 6
 	this.instance_4 = new lib.元件12();
 	this.instance_4.parent = this;
-	this.instance_4.setTransform(120.2,292,1,1,9.2,0,0,102.4,9.7);
+	this.instance_4.setTransform(121.1,301.3,0.972,0.972,9.2,0,0,102.5,9.7);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).to({regX:102.5,regY:9.8,rotation:17.9,x:177,y:308.9},4).to({rotation:-31.5,x:230,y:277.5},5).to({regX:102.4,regY:9.9,scaleX:1.13,scaleY:1.13,rotation:-88.1,x:206.8,y:295.6},4).to({regY:10.1,scaleX:1.05,scaleY:1.05,rotation:-35.7,x:199.8,y:320.3},6).to({regX:102.5,rotation:-15.7,x:116,y:295.7},6).to({regX:102.6,regY:10.2,scaleX:1.02,scaleY:1.02,rotation:-3.3,x:118.3,y:294.1},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).to({regX:102.6,regY:9.8,rotation:17.9,x:176.3,y:317.6},4).to({regX:102.5,regY:9.9,rotation:-31.5,x:227.7,y:287.2},5).to({regX:102.4,regY:10,scaleX:1.1,scaleY:1.1,rotation:-88.1,x:205.3,y:304.6},4).to({regY:10.1,scaleX:1.02,scaleY:1.02,rotation:-35.7,x:198.3,y:328.7},6).to({regX:102.5,rotation:-15.7,x:116.9,y:304.8},6).to({regX:102.6,regY:10.2,scaleX:1,scaleY:1,rotation:-3.3,x:119.1,y:303.2},2).wait(1));
 
 	// 图层 8
 	this.instance_5 = new lib.元件9();
 	this.instance_5.parent = this;
-	this.instance_5.setTransform(199.2,295.4,1,1,0,0,0,14.2,6.8);
+	this.instance_5.setTransform(197.8,304.5,0.972,0.972,0,0,0,14.2,6.8);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).to({regX:14.4,rotation:23.3,x:183.9,y:298},4).to({regX:14.3,rotation:34.5,x:101.2,y:290},5).to({regX:14.5,rotation:65.6,x:114.6,y:296.5},4).to({regY:6.7,rotation:90.1,x:211.6,y:325.5},6).to({regX:14.6,rotation:-16,x:218.6,y:292.2},6).to({scaleX:1,scaleY:1,rotation:-7.8,x:209,y:293.8},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).to({regX:14.4,rotation:23.3,x:182.9,y:307},4).to({regX:14.3,rotation:34.5,x:102.6,y:299.3},5).to({regX:14.5,rotation:65.6,x:115.5,y:305.5},4).to({regY:6.7,rotation:90.1,x:209.8,y:333.8},6).to({regX:14.6,rotation:-16,x:216.7,y:301.4},6).to({scaleX:0.97,scaleY:0.97,rotation:-7.8,x:207.3,y:303},2).wait(1));
 
 	// 图层 1
 	this.instance_6 = new lib.元件11();
 	this.instance_6.parent = this;
-	this.instance_6.setTransform(176,96.8,1,1,-2,0,0,43.6,97.4);
+	this.instance_6.setTransform(175.3,111.6,0.971,0.971,-2,0,0,43.6,97.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).to({regX:43.5,regY:97.5,rotation:0,x:172.4,y:116.5},4).to({y:100},5).to({y:93},4).to({y:119},6).to({regX:43.6,rotation:-3.2,x:172.5,y:94.1},6).to({regY:97.4,rotation:-2,x:176,y:95.8},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).to({scaleX:0.97,scaleY:0.97,rotation:0,x:171.8,y:130.7},4).to({y:114.7},5).to({y:107.9},4).to({y:133.1},6).to({rotation:-3.2,y:108.9},6).to({scaleX:0.97,scaleY:0.97,rotation:-2,x:175.3,y:110.7},2).wait(1));
 
 	// 图层 7
 	this.instance_7 = new lib.元件13();
 	this.instance_7.parent = this;
-	this.instance_7.setTransform(18.9,320.4,1,1,8.7,0,0,22.9,14.3);
+	this.instance_7.setTransform(22.6,328.8,0.972,0.972,8.7,0,0,22.9,14.3);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).to({rotation:17.4,x:72.5,y:321.4},4).to({regY:14.4,rotation:-42.3,x:171.7,y:365.2},5).to({regX:22.8,scaleX:1.13,scaleY:1.13,rotation:-99.3,x:253.1,y:405.4},4).to({regY:14.6,scaleX:1.05,scaleY:1.05,rotation:-78.6,x:145.4,y:416.6},6).to({regX:22.7,regY:14.7,rotation:-20.6,x:31.9,y:366.2},6).to({scaleX:1.02,scaleY:1.02,rotation:-6,x:25.4,y:343.3},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_7).to({rotation:17.4,x:74.7,y:329.7},4).to({regY:14.4,rotation:-42.3,x:171,y:372.3},5).to({regX:22.8,scaleX:1.1,scaleY:1.1,rotation:-99.3,x:250.2,y:411.4},4).to({regY:14.7,scaleX:1.02,scaleY:1.02,rotation:-78.6,x:145.5,y:422.2},6).to({regX:22.7,rotation:-20.6,x:35.2,y:373.3},6).to({regX:22.8,scaleX:1,scaleY:1,rotation:-6,x:29,y:351},2).wait(1));
 
 	// 图层 10
 	this.instance_8 = new lib.元件8();
 	this.instance_8.parent = this;
-	this.instance_8.setTransform(207.7,422,1,1,0,0,0,14.8,20.2);
+	this.instance_8.setTransform(206.1,427.5,0.972,0.972,0,0,0,14.8,20.2);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_8).to({regX:14.9,rotation:23.8,x:138.5,y:417.8},4).to({rotation:49.5,x:36.2,y:396.8},5).to({regX:15,regY:20.1,rotation:80.6,x:3.6,y:354.1},4).to({regY:19.9,rotation:105.1,x:86.8,y:332.1},6).to({regX:15.1,scaleX:1,scaleY:1,rotation:71.9,x:116.4,y:388.3},2).to({scaleX:1,scaleY:1,rotation:38.6,x:183.9,y:419.4},2).to({scaleX:1,scaleY:1,rotation:5.2,x:259.5,y:410.2},2).to({regX:15.2,regY:20,rotation:2.5,x:233.8,y:416.2},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_8).to({regX:14.9,rotation:23.8,x:138.8,y:423.4},4).to({rotation:49.5,x:39.4,y:403},5).to({regX:15,regY:20.1,rotation:80.6,x:7.8,y:361.5},4).to({regX:15.1,regY:19.9,rotation:105.1,x:88.6,y:340.2},6).to({scaleX:0.97,scaleY:0.97,rotation:71.9,x:117.3,y:394.8},2).to({regX:15.2,scaleX:0.97,scaleY:0.97,rotation:38.6,x:183,y:425.1},2).to({regX:15.1,scaleX:0.97,scaleY:0.97,rotation:5.2,x:256.4,y:416.1},2).to({regX:15.2,regY:20.1,rotation:2.5,x:231.4,y:422},2).wait(1));
 
 	// 图层 13
 	this.instance_9 = new lib.元件13eryre();
 	this.instance_9.parent = this;
-	this.instance_9.setTransform(20.9,551,1,0.979,0,171.1,-8.5,22.9,14.3);
+	this.instance_9.setTransform(24.5,552.9,0.971,0.951,0,171.1,-8.5,22.9,14.2);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).to({scaleX:1,scaleY:0.98,skewX:162.2,skewY:-17.1,x:74.5,y:550.1},4).to({regY:14.4,scaleX:0.99,scaleY:0.99,skewX:222.9,skewY:41.7,x:173.7,y:507.2},5).to({regX:22.8,scaleX:1.11,scaleY:1.13,skewX:279.1,skewY:99.5,x:255.1,y:461.9},4).to({regY:14.6,scaleX:1.03,scaleY:1.05,skewX:258.8,skewY:78.3,x:147.4,y:470.6},6).to({regX:22.7,scaleX:1.05,scaleY:1.03,skewX:201,skewY:20.2,x:33.8,y:506.3},6).to({regY:14.7,scaleX:1.02,scaleY:1,skewX:186.1,skewY:5.9,x:27.4,y:529.3,alpha:0},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_9).to({regY:14.3,scaleX:0.97,scaleY:0.95,skewX:162.2,skewY:-17.1,x:76.6,y:552},4).to({regX:23,regY:14.4,scaleX:0.96,scaleY:0.96,skewX:222.9,skewY:41.7,x:173,y:510.4},5).to({regX:22.8,scaleX:1.08,scaleY:1.1,skewX:279.1,skewY:99.5,x:252.1,y:466.3},4).to({regY:14.6,scaleX:1,scaleY:1.02,skewX:258.8,skewY:78.3,x:147.4,y:474.7},6).to({scaleX:1.02,scaleY:1,skewX:201,skewY:20.2,x:37.2,y:509.4},6).to({scaleX:1,scaleY:0.98,skewX:186.1,skewY:5.9,x:30.9,y:531.8,alpha:0},2).wait(1));
 
 	// 图层 12
 	this.instance_10 = new lib.元件8rr();
 	this.instance_10.parent = this;
-	this.instance_10.setTransform(209.7,467.3,1,0.978,0,180,0,14.8,20.2);
+	this.instance_10.setTransform(208,471.5,0.972,0.95,0,180,0,14.8,20.2);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_10).to({regX:14.9,scaleX:1,scaleY:0.98,skewX:155.7,skewY:-23.3,x:140.5,y:464.8},4).to({scaleX:0.99,scaleY:0.99,skewX:129.9,skewY:-48.8,x:38.2,y:476.3},5).to({regX:15,regY:20.1,scaleX:0.98,scaleY:1,skewX:99.2,skewY:-80.4,x:5.6,y:518,alpha:0},4).to({regY:19.9,scaleX:0.98,scaleY:1,skewX:75.2,skewY:-105.4,x:88.8,y:539.5,alpha:1},6).to({regX:15.1,scaleX:0.98,scaleY:1,skewX:107.7,skewY:-71.6,x:118.4,y:484.6},2).to({scaleX:0.99,scaleY:0.99,skewX:140.8,skewY:-38,x:185.9,y:484.7},2).to({regY:20,scaleX:1,scaleY:0.98,skewX:174.7,skewY:-5.1,x:261.5,y:463},2).to({regX:15.2,skewX:177.4,skewY:-2.5,x:235.8,y:457.3},2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_10).to({regX:14.9,scaleX:0.97,scaleY:0.95,skewX:155.7,skewY:-23.3,x:140.8,y:469.2},4).to({scaleX:0.96,scaleY:0.96,skewX:129.9,skewY:-48.8,x:41.3,y:480.3},5).to({regX:15,regY:20,scaleX:0.95,scaleY:0.97,skewX:99.2,skewY:-80.4,x:9.8,y:520.9,alpha:0},4).to({regX:14.9,regY:19.9,scaleX:0.95,scaleY:0.97,skewX:75.2,skewY:-105.4,x:90.6,y:541.8,alpha:1},6).to({regX:15,scaleX:0.95,scaleY:0.97,skewX:107.7,skewY:-71.6,x:119.2,y:488.4},2).to({regX:15.1,regY:19.8,scaleX:0.96,scaleY:0.96,skewX:140.8,skewY:-38,x:185,y:488.5},2).to({regY:19.9,scaleX:0.97,scaleY:0.95,skewX:174.7,skewY:-5.1,x:258.3,y:467.4},2).to({regX:15.2,regY:20,skewX:177.4,skewY:-2.5,x:233.3,y:461.8},2).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-14.3,-5.3,299.7,574.7);
+p.nominalBounds = new cjs.Rectangle(-9.6,12.3,291.2,558.5);
 
 
 (lib.元件3 = function(mode,startPosition,loop) {
@@ -1866,12 +1927,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,481.6,134.3);
 	this.instance_1.setTransform(124.8,29,0.304,0.304,0,0,0,38.3,62.1);
 
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#32FFEB").s().p("AidCtIAAlZIE7AAIAAFZgAhBB/ICDAAIAAj9IiDAAg");
-	this.shape.setTransform(84.8,30);
+	this.shape.graphics.f("#32FFEB").s().p("AhRCSQgkgXgTgmQgSgmAAgrQAAhQArgtQAsguBDAAQAtAAAkAWQAkAVATAmQATAnAAAwQAAAxgUAnQgUAngkAUQglAUgqAAQgtAAgkgWgAhNhiQghAeAABJQAAA6AgAjQAfAhAvAAQAwABAggjQAfgiAAg+QAAgngNgeQgOgegagQQgZgQghAAQgsAAghAgg");
+	this.shape.setTransform(85,26.9);
 
 	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#32FFEB").s().p("ABECtIAAglIgXAlIjKAAIAAlZIE6AAIAAAtIjeAAIAAEAICFAAIAAh6IhEAAIAAgtICeAAIAADTg");
-	this.shape_1.setTransform(49.6,30);
+	this.shape_1.graphics.f("#32FFEB").s().p("AhGCTQgngUgUgmQgUgnAAgxQAAguAUgpQAUgpAlgUQAlgUAwAAQAjAAAcALQAdAMAQAUQAQAUAIAiIgmAKQgIgZgKgOQgLgOgVgJQgUgIgYAAQgdAAgVAJQgWAJgNAPQgNAOgHARQgNAfAAAjQAAAqAPAeQAPAdAdAOQAcAOAfAAQAcABAbgLQAagLAOgNIAAg8IhfAAIAAglICJAAIAAB4QgfAZgiAMQgiANgjAAQgvAAgngVg");
+	this.shape_1.setTransform(49.4,26.9);
 
 	this.instance_2 = new lib.元件39();
 	this.instance_2.parent = this;
@@ -1901,12 +1962,12 @@ p.nominalBounds = new cjs.Rectangle(-5.4,-1,181.8,63.2);
 	this.instance_1.setTransform(124.8,29,0.304,0.304,0,0,0,38.3,62.1);
 
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#32FFEB").s().p("AidCtIAAlZIE7AAIAAFZgAhBB/ICDAAIAAj9IiDAAg");
-	this.shape.setTransform(84.8,30);
+	this.shape.graphics.f("#32FFEB").s().p("AhRCSQgkgXgTgmQgSgmAAgrQAAhQArgtQAsguBDAAQAtAAAkAWQAkAVATAmQATAnAAAwQAAAxgUAnQgUAngkAUQglAUgqAAQgtAAgkgWgAhNhiQghAeAABJQAAA6AgAjQAfAhAvAAQAwABAggjQAfgiAAg+QAAgngNgeQgOgegagQQgZgQghAAQgsAAghAgg");
+	this.shape.setTransform(85,26.9);
 
 	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#32FFEB").s().p("ABECtIAAglIgXAlIjKAAIAAlZIE6AAIAAAtIjeAAIAAEAICFAAIAAh6IhEAAIAAgtICeAAIAADTg");
-	this.shape_1.setTransform(49.6,30);
+	this.shape_1.graphics.f("#32FFEB").s().p("AhGCTQgngUgUgmQgUgnAAgxQAAguAUgpQAUgpAlgUQAlgUAwAAQAjAAAcALQAdAMAQAUQAQAUAIAiIgmAKQgIgZgKgOQgLgOgVgJQgUgIgYAAQgdAAgVAJQgWAJgNAPQgNAOgHARQgNAfAAAjQAAAqAPAeQAPAdAdAOQAcAOAfAAQAcABAbgLQAagLAOgNIAAg8IhfAAIAAglICJAAIAAB4QgfAZgiAMQgiANgjAAQgvAAgngVg");
+	this.shape_1.setTransform(49.4,26.9);
 
 	this.instance_2 = new lib.元件39_1();
 	this.instance_2.parent = this;
@@ -2293,6 +2354,30 @@ p.nominalBounds = new cjs.Rectangle(108.4,-14.3,478.8,142.3);
 		{
 			console.log(666);
 			this.play();
+			this.button_4.removeEventListener('click');
+		}
+	}
+	this.frame_178 = function() {
+		/* Mouse Click 事件
+		单击此指定的元件实例会执行您可在其中添加自己的自定义代码的函数。
+		
+		说明:
+		1. 在以下"// 开始您的自定义代码"行后的新行上添加您的自定义代码。
+		单击此元件实例时，此代码将执行。
+		*/
+		
+		this.button_4.addEventListener("click", fl_MouseClickHandler_2.bind(this));
+		
+		function fl_MouseClickHandler_2()
+		{
+			// 开始您的自定义代码
+			// 此示例代码在"输出"面板中显示"已单击鼠标"。
+			//alert("已单击鼠标");
+			// 结束您的自定义代码
+			$('#ending').show();
+			$('#animation_container').hide();
+			
+			
 		}
 	}
 	this.frame_187 = function() {
@@ -2300,7 +2385,7 @@ p.nominalBounds = new cjs.Rectangle(108.4,-14.3,478.8,142.3);
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(64).call(this.frame_64).wait(68).call(this.frame_132).wait(55).call(this.frame_187).wait(423));
+	this.timeline.addTween(cjs.Tween.get(this).wait(64).call(this.frame_64).wait(68).call(this.frame_132).wait(46).call(this.frame_178).wait(9).call(this.frame_187).wait(423));
 
 	// Camera
 	this.___camera___instance = new lib.___Camera___();
@@ -2455,12 +2540,13 @@ lib.properties = {
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
+	webfonts: {},
 	manifest: [
-		{src:"images/che.jpg?1489829877637", id:"che"},
-		{src:"images/setsdgsdgs.png?1489829877637", id:"setsdgsdgs"},
-		{src:"images/stdfgnrthdr.png?1489829877637", id:"stdfgnrthdr"},
-		{src:"images/yetet.png?1489829877637", id:"yetet"},
-		{src:"images/背景图_.jpg?1489829877637", id:"背景图"}
+		{src:"images/che.jpg", id:"che"},
+		{src:"images/setsdgsdgs.png", id:"setsdgsdgs"},
+		{src:"images/stdfgnrthdr.png", id:"stdfgnrthdr"},
+		{src:"images/yetet.png", id:"yetet"},
+		{src:"images/背景图_.jpg", id:"背景图"}
 	],
 	preloads: []
 };

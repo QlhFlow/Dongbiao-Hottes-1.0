@@ -24,12 +24,13 @@ select {
   top: 0;
 }
 .userInfo-box {
+  display: none;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
   background: #fff;
   padding: 0.4047976rem 0.64467766rem;
-  display: none;
+  position: relative;
 }
 .userInfo-box .userInfo-title {
   width: 0.86956522rem;
@@ -119,6 +120,7 @@ select {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   overflow-scrolling: touch;
+  position: relative;
 }
 .action-rules h1 {
   color: #061C57;
@@ -188,4 +190,12 @@ select {
 }
 .prize-result .prize-result-info .notGet {
   color: #2B69B6;
+}
+#animation_container,
+#dom_overlay_container {
+  width: 100%;
+  height: 100%;
+}
+#animation_container {
+  position: relative;
 }
