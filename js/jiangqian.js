@@ -114,6 +114,8 @@ var SaveInfo = {
 //							}
 //						}
 //					})
+            }else{
+                alert('请完善您的报名信息');
             }
         })
     }
@@ -121,12 +123,14 @@ var SaveInfo = {
 $(function(){
     ProvinceData.init('ddlProvince', 'ddlCity','agency');
     SaveInfo.init();
+    var w = window.innerWidth;
+    var h = window.innerHeight;
     $('#close-userInfo').click(function(){
         $('#userInfo').hide();
     });
     $('#gotoInfo').click(function(e){
         e.preventDefault();
-        $('#userInfo').show();
+        $('#userInfo').css({'width':w,'height':h}).show();
         $('#userInfo-box').show();
         $('#rule-icon').click(function(){
             $('#userInfo-box').hide();

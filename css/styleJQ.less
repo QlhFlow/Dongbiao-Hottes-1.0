@@ -42,6 +42,9 @@ input,select{
     .input-form{
         box-sizing:border-box;
         width:50%;
+        li.red{
+            border:1px solid #f00;
+        }
         li {
             border: 1px solid #464646;
             border-radius: 3px;
@@ -50,6 +53,7 @@ input,select{
             margin-bottom: 30/133.4rem;
             font-size: 22/133.4rem;
             position: relative;
+
             span {
                 color: #fff;
                 position: absolute;
@@ -69,11 +73,12 @@ input,select{
                 height: 100%;
             }
             select{
-                padding-left: 130/133.4rem;
+                //padding-left: 130/133.4rem;
+                float:right;
                 -webkit-padding-left:130/133.4rem;
                 box-sizing: border-box;
                 -webkit-box-sizing:border-box;
-                width:100%;
+                width:314/133.4rem;
                 height:100%;
             }
         }
@@ -84,6 +89,15 @@ input,select{
     }
     .input-form-right{
         float:right;
+        select{
+            //padding-left: 130/133.4rem;
+            float:right;
+            -webkit-padding-left:130/133.4rem;
+            box-sizing: border-box;
+            -webkit-box-sizing:border-box;
+            width:398/133.4rem;
+            height:100%;
+        }
     }
     #btn-userInfo{
         float:right;
@@ -195,9 +209,7 @@ input,select{
     }
 
 }
-.red{
-    border:1px solid #f00;
-}
+
 #animation_container,#dom_overlay_container{
     width:100%;
     height:100%;
