@@ -267,6 +267,7 @@ body {
 @media screen and (orientation: landscape) {
   #portrait {
     display: none;
+    overflow: hidden;
   }
   #landscape {
     display: block;
@@ -300,6 +301,7 @@ body {
   .sign-up {
     width: 4.14542729rem;
     height: 0.47976012rem;
+    line-height: 0.47976012rem;
     background: #2b69b6;
     -webkit-transform: skew(-10deg);
     transform: skew(-10deg);

@@ -154,7 +154,6 @@ function init() {
     loader.addEventListener("fileload", handleFileLoad);
     loader.addEventListener("complete", handleComplete);
     loader.loadManifest(lib.properties.manifest);
-    console.log(999);
 }
 function handleFileLoad(evt) {
     if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
