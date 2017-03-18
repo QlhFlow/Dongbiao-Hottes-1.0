@@ -7,6 +7,7 @@
 	<meta content="yes" name="apple-mobile-web-app-capable">
 	<meta content="black" name="apple-mobile-web-app-status-bar-style">
 	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" href="css/styleJQ.css"/>
 	<script>
 		document.addEventListener("WeixinJSBridgeReady", function () {
 			audioAutoPlay('musicStar');
@@ -31,14 +32,14 @@
 			#landscape{
 				display:block;
 			}
-			.box{background: deeppink; width: 100%; height: 100%;}
+			/*.box{background: deeppink; width: 100%; height: 100%;}*/
 
 
-			.box p{
-				margin: auto ;
-				margin-top : 20px ;
-				text-align: center;
-			}
+			/*.box p{*/
+				/*margin: auto ;*/
+				/*margin-top : 20px ;*/
+				/*text-align: center;*/
+			/*}*/
 			.red{
 				border-color:#f00;
 			}
@@ -55,63 +56,104 @@
 		</div>
 	</div>
 	<div class="portrait" id="portrait">
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet autem deserunt, eos facilis
-			hic illum itaque maxime minus nam nobis odio possimus quae quis reiciendis tempore ut vel velit!
-		</div>
-		<div>Aliquid at blanditiis dicta doloremque dolores dolorum earum enim esse harum hic impedit, in maxime
-			minus nesciunt nobis nostrum numquam officiis possimus quaerat quam quidem, ratione, sunt tenetur
-			totam vero!
-		</div>
-		<div>Autem cupiditate deleniti voluptas voluptates. Accusantium adipisci alias, architecto atque autem
-			corporis dolorum et hic ipsa itaque molestias numquam quas quibusdam quisquam rem repellat
-			repellendus, repudiandae sed ut voluptatum? Consequuntur.
-		</div>
-		<div>Asperiores fugiat maiores non tempore voluptas. Ab accusantium assumenda, culpa cumque delectus
-			dolor dolore est harum itaque laboriosam libero, maiores maxime obcaecati odio optio provident
-			quaerat quidem sit tempora, tempore.
-		</div>
+		<!--<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet autem deserunt, eos facilis-->
+			<!--hic illum itaque maxime minus nam nobis odio possimus quae quis reiciendis tempore ut vel velit!-->
+		<!--</div>-->
+		<!--<div>Aliquid at blanditiis dicta doloremque dolores dolorum earum enim esse harum hic impedit, in maxime-->
+			<!--minus nesciunt nobis nostrum numquam officiis possimus quaerat quam quidem, ratione, sunt tenetur-->
+			<!--totam vero!-->
+		<!--</div>-->
+		<!--<div>Autem cupiditate deleniti voluptas voluptates. Accusantium adipisci alias, architecto atque autem-->
+			<!--corporis dolorum et hic ipsa itaque molestias numquam quas quibusdam quisquam rem repellat-->
+			<!--repellendus, repudiandae sed ut voluptatum? Consequuntur.-->
+		<!--</div>-->
+		<!--<div>Asperiores fugiat maiores non tempore voluptas. Ab accusantium assumenda, culpa cumque delectus-->
+			<!--dolor dolore est harum itaque laboriosam libero, maiores maxime obcaecati odio optio provident-->
+			<!--quaerat quidem sit tempora, tempore.-->
+		<!--</div>-->
 	</div>
 	<!--横屏体验内容页面-->
 	<div class="box" id="landscape">
-		<p>lalalalal</p>
 		<!--留资-->
 		<div id="userInfo">
-			<ul>
-				<li>
-					<label for="username">
+			<div class="userInfo-box" >
+				<p class="userInfo-title">报名注册</p>
+				<p class="userInfo-tip">填写完整个人信息，即有机会赢取行圆汽车提供的精美礼品。</p>
+				<ul class="input-form-left input-form">
+					<li>
+						<span>姓名</span>
 						<input type="text" id="username" name="username" placeholder="姓名" autofocus="autofocus" maxlength=10 minlength=2 required="required" />
-					</label>
-				</li>
-				<li>
-					<label for="phone">
+					</li>
+					<li>
+						<span>手机</span>
 						<input type="tel" id="phone" name="phone" placeholder="手机" required="required" />
-					</label>
-				</li>
-				<li>
-					<select id="ddlProvince" name="ddlProvince" style="width: 66px" class="w50" ></select>
-					<select id="ddlCity" name="ddlCity" class="w50" >
-						<option value="-1">城市</option>
-					</select>
-				</li>
-				<li>
-					<select id="agency" name="agency" style="width: 66px" class="w50" >
-						<option value="-1">--经销商--</option>
-						<option value="1">经销商1</option>
-						<option value="2">经销商2</option>
-						<option value="3">经销商3</option>
-					</select>
-				</li>
-				<li>
-					<select name="cartype" id="cartype">
-						<option value="-1">--意向车型--</option>
-						<option value="4008">4008</option>
-						<option value="3008">3008</option>
-						<option value="2008">2008</option>
-					</select>
-				</li>
-				<li><button id="btn-userInfo">提交</button></li>
-				<li id="height-value"></li>
-			</ul>
+					</li>
+					<li>
+						<span>省份</span>
+						<select id="ddlProvince" name="ddlProvince" >
+							<option value="1">经销商1</option>
+							<option value="2">经销商2</option>
+							<option value="3">经销商3</option>
+						</select>
+					</li>
+					<li>
+						<span>城市</span>
+						<select id="ddlCity" name="ddlCity"  >
+							<option value="1">经销商1</option>
+							<option value="2">经销商2</option>
+							<option value="3">经销商3</option>
+						</select>
+					</li>
+				</ul>
+				<ul class="input-form-right input-form">
+					<li>
+						<span>意向车型</span>
+						<select id="agency" name="agency"  >
+							<option value="-1">--经销商--</option>
+							<option value="1">经销商1</option>
+							<option value="2">经销商2</option>
+							<option value="3">经销商3</option>
+						</select>
+					</li>
+					<li>
+						<span>经销商</span>
+						<select name="cartype" id="cartype">
+							<option value="-1">--意向车型--</option>
+							<option value="4008">4008</option>
+							<option value="3008">3008</option>
+							<option value="2008">2008</option>
+						</select>
+					</li>
+				</ul>
+				<div id="btn-userInfo">提&nbsp;&nbsp;&nbsp;交</div>
+				<a href="" ><i>活动详情</i></a>
+			</div>
+			<div id="actionRules" class="action-rules">
+				<h1><i>X008SUV盛会</i></h1>
+				<h2>活动说明：</h2>
+				<h4>2017年4月1日至2017年4月21日，东风标致“0”息“0”税“0”元保养回馈活动倾情开启，参与活动即有机会赢取丰厚大奖！</h4>
+				<h2>注册礼：</h2>
+				<h4>
+					活动期间，报名注册成功，有机会获得汽车大全提供的注册礼。<br/>
+					200元京东卡（50名）、100元电话充值卡（100名）、20元爱奇艺会员（500名）
+				</h4>
+				<h2>活动详情</h2>
+				<h4>
+					注册礼参与方式如下：<br/>
+					2017年4月21日至2017年4月21日，在专题页面报名注册成功，填写完整个人信息，既有机会赢取汽车大全提供的精美礼品。<br/>
+					购车礼参与方式如下：<br/>
+					2017年4月1日至2017年4月21日，在专题页面报名注册成功，购车成功并将有效购车发票、注册信息（姓名、电话）发送到@@@@@@@@@@@@@，活动结束后，汽车大全统一审核公布获奖名单。<br/>
+					<br/>
+					发奖及售后说明：<br/>
+					1、获奖名单会在活动结束后统一公布，敬请期待。<br/>
+					2、奖品以实物为准，自活动结束之日起，60个工作日内以邮寄方式统一发放。<br/>
+					3、活动结束后汽车大全将与获奖网友联系，届时请您提供身份证信息及邮寄地址，身份证信息仅为代缴个人所得税使用。<br/>
+					4、2个月内如果未接到行圆汽车的电话，需要您提供参与活动名称及个人邮寄地址、身份证信息等，汽车大全核对无误后将为您发放奖品。<br/>
+					5、如果2个月内汽车大全无法联系到您，且您也没有主动反馈个人获奖信息，则视为您主动放弃获奖资格，奖品亦不予保留。<br/>
+					6、礼品验收：签收时需对产品进行验货，如因快递原因造成的货物损坏需拒签，签收则视为验货无问题。<br/>
+				</h4>
+
+			</div>
 		</div>
 		<!--抽奖-->
 		<div id="prize">
@@ -129,16 +171,16 @@
 <!--<script src="js/style.js" type="text/javascript" charset="utf-8"></script>-->
 <script src="js/province.js"></script>
 <script type="text/javascript">
-	//		 function audioAutoPlay(id){
-	//			var audio = document.getElementById(id),
-	//					play = function(){
-	//						audio.play();
-	//						document.removeEventListener("touchstart",play, false);
-	//					};
-	//			audio.play();
-	//			document.addEventListener("touchstart",play, false);
-	//   	 	}
-	//    	var isAppInside=/micromessenger/i.test(navigator.userAgent.toLowerCase())||/yixin/i.test(navigator.userAgent.toLowerCase());
+			 function audioAutoPlay(id){
+				var audio = document.getElementById(id),
+						play = function(){
+							audio.play();
+							document.removeEventListener("touchstart",play, false);
+						};
+				audio.play();
+				document.addEventListener("touchstart",play, false);
+	   	 	}
+	    	var isAppInside=/micromessenger/i.test(navigator.userAgent.toLowerCase())||/yixin/i.test(navigator.userAgent.toLowerCase());
 
 	//横屏
 	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
@@ -152,105 +194,108 @@
 				var h = window.innerHeight;
 				$('#height-value').html(w+'----'+h);
 			});
-			var SaveInfo = {
-				username:null,
-				phone:null,
-				province:null,
-				city:null,
-				agency:null,
-				cartype:null,
-				init:function(){
-					this.updateView();
-				},
-				updateView:function(){
-					SaveInfo.inputReg();
-					SaveInfo.submit();
-				},
-				inputReg:function(){
-					$('input[name="username"]').blur(function(){
-						if(this.validity.valid){
-							$('input[name="username"]').removeClass('red');
-						}else{
-							$('input[name="username"]').addClass('red');
-						}
-					});
-					$('input[name="username"]').focus(function(){
-						if(this.validity.valid) {
-							$('input[name="username"]').removeClass('red');
-						}else{
-							$('input[name="username"]').addClass('red');
-						}
-					});
-					$('input[name="phone"]').blur(function(){
-						var reg = /^1[34578]\d{9}$/;
-						var val = $(this).val();
-						if(reg.test(val)){
-							$(this).removeClass('red');
-						}else{
-							$(this).addClass('red');
-						}
-					});
-					$('input[name="phone"]').focus(function(){
-						$(this).keyup(function(){
-							if(this.validity.valid){
-								$(this).removeClass('red');
-							}else{
-								$(this).addClass('red');
-							}
-						})
-					});
-				},
-				clickReg:function(){
-					var usernameReg = false,phoneReg = false,provinceReg = false,cityReg = false,agencyReg = false,cartypeReg = false;
-					var inputUsername = document.getElementById('username');
-					if(inputUsername.validity.valid){
-						usernameReg = true;
-					}else{
-						usernameReg = false;
-					}
-					var reg = /^1[34578]\d{9}$/;
-					if(reg.test($('input[name="phone"]').val())){
-						phoneReg = true;
-					}else{
-						phoneReg = false;
-					}
-					function selectReg(selectName){
-						var val = $('select[name='+selectName+'] option:selected').val();
-						var reg;
-						if(val&&val!=-1){
-							reg = true;
-						}else{
-							reg = false;
-						}
-						return reg;
-					}
-					provinceReg = selectReg('ddlProvince');
-					cityReg = selectReg('ddlCity');
-					agencyReg = selectReg('agency');
-					cartypeReg = selectReg('cartype');
-					var total = usernameReg&&phoneReg&&provinceReg&&cityReg&&agencyReg&&cartypeReg;
-					console.log(usernameReg,phoneReg,provinceReg,cityReg,agencyReg,cartypeReg);
-					return total;
-				},
-				submit:function(){
-					$('#btn-userInfo').click(function(e){
-						e.preventDefault();
-						if(SaveInfo.clickReg()){
-							SaveInfo.username = $('input[name="username"]').val();
-							SaveInfo.phone = $('input[name="phone"]').val();
-							SaveInfo.province = $('select[name="ddlProvince"] option:selected').val();
-							SaveInfo.city = $('select[name="ddlCity"] option:selected').val();
-							SaveInfo.agency = $('select[name="agency"] option:selected').val();
-							SaveInfo.cartype = $('select[name="cartype"] option:selected').val();
-							var data = {
-								username:SaveInfo.username,
-								phone:SaveInfo.phone,
-								province:SaveInfo.province,
-								city:SaveInfo.city,
-								agency:SaveInfo.agency,
-								cartype:SaveInfo.cartype
-							};
-							console.log(data);
+
+		}
+	}, false);
+ var SaveInfo = {
+	 username:null,
+	 phone:null,
+	 province:null,
+	 city:null,
+	 agency:null,
+	 cartype:null,
+	 init:function(){
+		 this.updateView();
+	 },
+	 updateView:function(){
+		 SaveInfo.inputReg();
+		 SaveInfo.submit();
+	 },
+	 inputReg:function(){
+		 $('input[name="username"]').blur(function(){
+			 if(this.validity.valid){
+				 $('input[name="username"]').removeClass('red');
+			 }else{
+				 $('input[name="username"]').addClass('red');
+			 }
+		 });
+		 $('input[name="username"]').focus(function(){
+			 if(this.validity.valid) {
+				 $('input[name="username"]').removeClass('red');
+			 }else{
+				 $('input[name="username"]').addClass('red');
+			 }
+		 });
+		 $('input[name="phone"]').blur(function(){
+			 var reg = /^1[34578]\d{9}$/;
+			 var val = $(this).val();
+			 if(reg.test(val)){
+				 $(this).removeClass('red');
+			 }else{
+				 $(this).addClass('red');
+			 }
+		 });
+		 $('input[name="phone"]').focus(function(){
+			 $(this).keyup(function(){
+				 if(this.validity.valid){
+					 $(this).removeClass('red');
+				 }else{
+					 $(this).addClass('red');
+				 }
+			 })
+		 });
+	 },
+	 clickReg:function(){
+		 var usernameReg = false,phoneReg = false,provinceReg = false,cityReg = false,agencyReg = false,cartypeReg = false;
+		 var inputUsername = document.getElementById('username');
+		 if(inputUsername.validity.valid){
+			 usernameReg = true;
+		 }else{
+			 usernameReg = false;
+		 }
+		 var reg = /^1[34578]\d{9}$/;
+		 if(reg.test($('input[name="phone"]').val())){
+			 phoneReg = true;
+		 }else{
+			 phoneReg = false;
+		 }
+		 function selectReg(selectName){
+			 var val = $('select[name='+selectName+'] option:selected').val();
+			 var reg;
+			 if(val&&val!=-1){
+				 reg = true;
+			 }else{
+				 reg = false;
+			 }
+			 return reg;
+		 }
+		 provinceReg = selectReg('ddlProvince');
+		 cityReg = selectReg('ddlCity');
+		 agencyReg = selectReg('agency');
+		 cartypeReg = selectReg('cartype');
+		 var total = usernameReg&&phoneReg&&provinceReg&&cityReg&&agencyReg&&cartypeReg;
+		 console.log(usernameReg,phoneReg,provinceReg,cityReg,agencyReg,cartypeReg);
+		 return total;
+	 },
+	 submit:function(){
+		 $('#btn-userInfo').click(function(e){
+			 e.preventDefault();
+			 if(SaveInfo.clickReg()){
+				 SaveInfo.username = $('input[name="username"]').val();
+				 SaveInfo.phone = $('input[name="phone"]').val();
+				 SaveInfo.province = $('select[name="ddlProvince"] option:selected').val();
+				 SaveInfo.city = $('select[name="ddlCity"] option:selected').val();
+				 SaveInfo.agency = $('select[name="agency"] option:selected').val();
+				 SaveInfo.cartype = $('select[name="cartype"] option:selected').val();
+				 var data = {
+					 username:SaveInfo.username,
+					 phone:SaveInfo.phone,
+					 province:SaveInfo.province,
+					 city:SaveInfo.city,
+					 agency:SaveInfo.agency,
+					 cartype:SaveInfo.cartype
+				 };
+				 console.log(data);
 //					$.ajax({
 //						url:'dddd',
 //						type:'post',
@@ -262,16 +307,16 @@
 //							}
 //						}
 //					})
-						}
-					})
-				}
-			};
+			 }
+		 })
+	 }
+ };
+$(function(){
+	ProvinceData.init('ddlProvince', 'ddlCity','agency');
+	SaveInfo.init();
+});
 
-			ProvinceData.init('ddlProvince', 'ddlCity','agency');
-			SaveInfo.init();
 
-		}
-	}, false);
 
 </script>
 </html>
