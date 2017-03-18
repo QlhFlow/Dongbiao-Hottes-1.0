@@ -68,7 +68,7 @@ function funImgLoading(containID,txtID,fnComplete) {
         var percent = parseInt((++imgLoadedNum) / imgAllNum * 100);
 
         loadDiv.innerHTML = percent+'%';
-        $('#page02').css('display','none');
+        $('#portrait').css('display','none');
         // console.log(percent);
         if (percent<=50) {
 
@@ -78,7 +78,7 @@ function funImgLoading(containID,txtID,fnComplete) {
             if(percent >= 100) {
 
                 setTimeout(fnComplete,500);
-                $('#page02').fadeIn();
+                $('#portrait').fadeIn();
                 sessionStorage.setItem("pageloaded", "true");
             }
         }
@@ -146,16 +146,7 @@ funImgLoading("page-box","img-loading-txt",function(){
         win.remCalc = remCalc;
     }
 })(window);
-function audioAutoPlay(id){
-    var audio = document.getElementById(id),
-        play = function(){
-            audio.play();
-            document.removeEventListener("touchstart",play, false);
-        };
-    audio.play();
-    document.addEventListener("touchstart",play, false);
-}
-var isAppInside=/micromessenger/i.test(navigator.userAgent.toLowerCase())||/yixin/i.test(navigator.userAgent.toLowerCase());
+
 	//音乐暂停播放
     //musicStar.pause();
     //musicChange.play();

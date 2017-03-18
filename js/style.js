@@ -9,7 +9,7 @@
         }
         if (window.orientation === 90 || window.orientation === -90 ){
             //alert('横屏状态！');
-
+			$("#portrait").css("display","none");
 			$("body").css({"width":w,"height":h});
             document.addEventListener("WeixinJSBridgeReady", function () {
                 audioAutoPlay('musicStar');

@@ -15,43 +15,95 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
+  font: inherit;
 }
-html, body { position: relative;height: 100%;width: 100%;}
+body{
+  font-family:"STHeiti", Helvetica, Arial, sans-serif;
+  background:#fff;
+  font-size:14px;
+  height:100%;
+  max-width:750px;
+  min-width:20pc;
+  line-height:1.5;
+}
+table{
+  border-collapse:collapse;
+  border-spacing:0
+}
+fieldset, img{
+  border:0
+}
+legend{
+  display:none
+}
+address, caption, cite, code, dfn, em, strong, th, var{
+  font-style:normal;
+  font-weight:normal
+}
+ol, ul{
+  list-style:none
+}
+caption, th{
+  text-align:left
+}
+h1, h2, h3, h4, h5, h6{
+  font-size:100%;
+  font-weight:normal
+}
+q:before, q:after{
+  content:''
+}
+abbr, acronym{
+  border:0
+}
+html{-webkit-text-size-adjust:none;width:100%;height:100% } /*����iphone��safari���ֺ��Զ�����*/
+input[type="text"], input[type="button"], input[type="submit"], input[type="search"]{
+  -webkit-appearance:none;
+  border-radius:0;
+} /*ȥ��iphoneĬ����ʽ��input��Բ�ǣ�*/
+
+html, body { position: relative;}
 /*********竖屏********/
 @media screen and (orientation: portrait) { 
-            .box{width: 100%;height: 100%;}     
-            body{background:black;}     
-            #portrait{display:block;height: 100%;width: 100%;margin: auto;text-align: center;}
+            .page-box{width: 100%;height: 100%;}     
+            .page01{position:absolute; top:0;left:0;width:100%;height:100%;background-size:cover;z-index: 1000;}              
+            .img-load-now{ position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);  }
+            .loading{width: 130/75rem; height: 180/75rem;background-image:url(../img/无标题-5.gif);background-size:130/75rem 180/75rem;
+                    animation: birdloadingla 1s ease  infinite;-webkit-animation: birdloadingla 1s ease  infinite; }          
+            .mask{ text-align: center;margin-top: 30/75rem; }  
+            #portrait{width:100%;height:100%;margin: auto;text-align: center;}
+            .bg{width: 100%; height:100%;}
+            .three-min{width:690/75rem; height:594/75rem; position: absolute; top:185/75rem; left:30/75rem;}
+            .phone{width: 70/75rem; height: 83/75rem; position: absolute; top:867/75rem ; left:349/75rem ; }
+            .phone2{width: 32/75rem; height: 64/75rem; position: absolute; top: 885/75rem; left: 352/75rem;animation: phone 3s linear infinite;}
             #landscape{ display:none;}
-            h3{font-family: '方正兰亭超细黑简体'; font-size: 36/75rem; color: rgb(109,183,196);margin-bottom:60%;position: absolute;left: 258/75rem;top: 768/75rem;} 
-            .h3-2{position: absolute;left: 258/75rem;left: 238/75rem;top: 830/75rem;}     
-            .one-phone{width:142/75rem; height:297/75rem;position: absolute;left: 375/75rem;top:349/75rem;} 
-            .one-phone2{width:142/75rem; height:297/75rem;position: absolute;left: 375/75rem;top:349/75rem;animation: left 2s linear infinite; -webkit-animation: left 4s linear infinite;}            
-            @-webkit-keyframes left{
+            h3{font-family: '微软雅黑'; font-size: 24/75rem; color:#ffffff;position: absolute;top:967/75rem;left:325/75rem;}   
+//        
+            @-webkit-keyframes phone{
                 0%{
                    -webkit-transform: rotateZ(0deg); 
-                   -webkit-transform-origin: left bottom; 
-                   transform-origin: left bottom; 
+                   -webkit-transform-origin: right bottom; 
+                   transform-origin: right bottom; 
                 }
                 25%{
-                    -webkit-transform: rotateZ(-90deg); 
-                     -webkit-transform-origin: left bottom; 
-                     transform-origin: left bottom; 
+                    -webkit-transform: rotateZ(90deg); 
+                     -webkit-transform-origin: right bottom; 
+                     transform-origin: right bottom; 
                 }
                 50%{
                     -webkit-transform: rotateZ(0deg); 
-                    -webkit-transform-origin: left bottom; 
-                     transform-origin: left bottom; 
+                    -webkit-transform-origin: right bottom; 
+                     transform-origin: right bottom; 
                 }
                 75%{
-                     -webkit-transform: rotateZ(-90deg); 
-                     -webkit-transform-origin: left bottom; 
-                     transform-origin: left bottom; 
+                     -webkit-transform: rotateZ(90deg); 
+                     -webkit-transform-origin: right bottom; 
+                     transform-origin: right bottom; 
                 }
                 100%{
                     -webkit-transform: rotateZ(0deg);
-                    -webkit-transform-origin: left bottom; 
-                     transform-origin: left bottom;  
+                    -webkit-transform-origin: right bottom; 
+                     transform-origin: right bottom;  
                 }
             }         
 }
@@ -60,7 +112,13 @@ html, body { position: relative;height: 100%;width: 100%;}
 @media screen and (orientation: landscape) {
             #portrait{display:none; }
             #landscape{display:block; position: relative;}
-            body{background: black;} 
+            .ending{width: 100%; height: 100%;}
+            .ending-pic1{width:682/133.4rem; height:646/133.4rem; position: absolute; top:0 ; left:0 ;}
+            .ending-pic2{width:537/133.4rem; height:117/133.4rem; position: absolute; top:65/133.4rem; left:748/133.4rem;}
+            .ending-pic3{width:573/133.4rem; height:244/133.4rem; position: absolute; top:220/133.4rem ; left:703/133.4rem;}
+            .sign-up{width: 553/133.4rem; height: 64/133.4rem; background:#2b69b6; -webkit-transform:skew(-10deg); transform: skew(-10deg);text-align: center;
+                     vertical-align:middle;position: absolute; top:519/133.4rem; left: 681/133.4rem;}
+            .sign-up span{font-family:'黑体';font-size:26/133.4rem; color: #FFFFFF;}
             .btn-music{width: 53/133.4rem; height: 54/133.4rem;position: absolute; top:40/133.4rem; left: 1230/133.4rem;}  
             .music{width:100%; height: 100%;}          
 }            

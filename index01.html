@@ -9,39 +9,49 @@
 	    <meta content="telephone=no" name="format-detection">
 	    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 	    <script>
-
+	        document.addEventListener("WeixinJSBridgeReady", function () {
+	            audioAutoPlay('musicStar');
+	        }, false);
     	</script>
 	</head>
 	<body>
-		<div id="page-box">
+		<div id="page-box" class="box">
 			<!--进度条页面-->
 		    <div class="page01" id="loadingPage">
 		        <div class="img-load-now">
 		        	<!--加载动画-->
-		            <div class="bird-loading"></div>
+		            <div class="loading"></div>
 		            <div class="mask"><span id="img-loading-txt"></span></div>
 		        </div>
 		    </div>
 		    <!--竖屏体验内容-->
 		    <div id="portrait">
-				<img src="img/phone.png" alt="" class="one-phone"/>
-				<img src="img/phone.png" alt="" class="one-phone2"/>
-				<h3>横屏体验最佳</h3>
-				<h3 class="h3-2">请开启横屏旋转</h3>
+		    	<img src="img/bg.png" class="bg"/>
+		    	<img src="img/three.png" class="three-min"/>	    	
+		    	<img src="img/rotate.png" class="phone"/>
+		    	<img src="img/rotate2.png" class="phone2"/>
+				<h3>横屏互动</h3>			
 			</div>
 		    <!--横屏体验内容页面-->
 		    <div id="landscape">		    	
 		    	<div class="btn-music">
 		    		<img src="img/musicopen.png" class="open music" style="display: block;"/>
 		    		<img src="img/musicclose.png" class="clock music" style="display: none;"/>
-		    	</div>
-		    	
+		    	</div>		    	
 				<!--动画部分-->    
 				<div class="animate">
 					<canvas id="" width="" height=""></canvas>
+				</div>				
+				<!--ending-->
+				<div class="ending">
+					<img src="img/ending/000_51.png" class="ending-pic1"/>
+					<img src="img/ending/for.png" class="ending-pic2"/>
+					<img src="img/ending/奖品.png" class="ending-pic3"/>
+					<div class="sign-up">
+						<span id="">马上报名</span>	
+					</div>
 				</div>
-		    </div>
-		    
+		    </div>	
 		    <!--音乐-->
 		    <audio src="video/You.mp3" id="musicStar"  loop="loop" preload="load" autoplay="autoplay"></audio>
    		</div>
@@ -50,8 +60,6 @@
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/style.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-
-
 		var w = window.innerWidth;
 		var h = window.innerHeight;
 	</script>
