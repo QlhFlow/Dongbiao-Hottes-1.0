@@ -144,10 +144,14 @@ $(function(){
 });
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
+    var w = window.innerWidth;
+    var h = window.innerHeight;
     canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
     anim_container = document.getElementById("animation_container");
+    $('#anim_container').css({'width':w,'height':h});
+    $('#dom_overlay_container').css({'width':w,'height':h});
     dom_overlay_container = document.getElementById("dom_overlay_container");
     images = images||{};
     var loader = new createjs.LoadQueue(false);
@@ -193,7 +197,7 @@ function handleComplete(evt) {
             }
             stage.update();
         }
-    };
+    }
     //Code to support hidpi screens and responsive scaling.
     function makeResponsive(isResp, respDim, isScale, scaleType) {
         var lastW, lastH, lastS=1;
@@ -227,6 +231,6 @@ function handleComplete(evt) {
             lastW = iw; lastH = ih; lastS = sRatio;
         }
     }
-    makeResponsive(true,'both',true,1);
+    makeResponsive(true,'width',true,1);
     fnStartAnimation();
 }

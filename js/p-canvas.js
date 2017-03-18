@@ -2352,7 +2352,7 @@
 
 			function fl_ClickToGoToAndPlayFromFrame_3()
 			{
-
+				console.log(666);
 				this.play();
 				this.button_4.removeEventListener('click');
 			}

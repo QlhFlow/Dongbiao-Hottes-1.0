@@ -38,42 +38,45 @@
                 musicStar.pause();
                 $(this).css("display","none");
                 $(".clock").css("display","block");
+                $('.btn-music').addClass('open-music');
             });
             $(".clock").click(function(){
                 musicStar.play();
                 $(this).css("display","none");
                 $(".open").css("display","block");
+                $('.btn-music').removeClass('open-music');
             });
         }
     }, false);
-//$(function(){
-//    init();
-//});
-//var w = window.innerWidth;
-//var h = window.innerHeight;
-//$("#portrait").css("display","none");
-//$("body").css({"width":w,"height":h});
-//document.addEventListener("WeixinJSBridgeReady", function () {
-//    audioAutoPlay('musicStar');
-//}, false);
-//document.addEventListener('touchstart',function(){
-//    if(musicStar.paused){
-//        musicStar.play();
-//    }
-//});
-////动画开始播放音乐
-////musicStar.load();
-//musicStar.src="video/You.mp3";
-//musicStar.play();
-//$(".open").click(function(){
-//    musicStar.pause();
-//    console.log(333);
-//    $(this).css("display","none");
-//    $(".clock").css("display","block");
-//});
-//$(".clock").click(function(){
-//    musicStar.play();
-//    console.log(444);
-//    $(this).css("display","none");
-//    $(".open").css("display","block");
-//});
+$(function(){
+    init();
+});
+var w = window.innerWidth;
+var h = window.innerHeight;
+$("#portrait").css("display","none");
+$("body").css({"width":w,"height":h});
+document.addEventListener("WeixinJSBridgeReady", function () {
+    audioAutoPlay('musicStar');
+}, false);
+document.addEventListener('touchstart',function(){
+    if(musicStar.paused){
+        musicStar.play();
+    }
+});
+//动画开始播放音乐
+//musicStar.load();
+musicStar.src="video/You.mp3";
+musicStar.play();
+$(".open").click(function(){
+    musicStar.pause();
+    $(this).css("display","none");
+    $(".clock").css("display","block");
+    $('.btn-music').removeClass('open-music');
+});
+$(".clock").click(function(){
+    musicStar.play();
+    $(this).css("display","none");
+    $(".open").css("display","block");
+
+    $('.btn-music').addClass('open-music');
+});

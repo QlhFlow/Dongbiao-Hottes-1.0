@@ -347,8 +347,10 @@ body {
     width: 0.39730135rem;
     height: 0.4047976rem;
     position: absolute;
-    top: 0.22488756rem;
-    left: 9.22038981rem;
+    top: 0.20989505rem;
+    left: 9.34782609rem;
+  }
+  .open-music {
     animation: music-btn 3s linear infinite;
     -webkit-animation: music-btn 3s linear infinite;
   }

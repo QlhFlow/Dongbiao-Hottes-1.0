@@ -2374,8 +2374,8 @@ p.nominalBounds = new cjs.Rectangle(108.4,-14.3,478.8,142.3);
 			// 此示例代码在"输出"面板中显示"已单击鼠标"。
 			//alert("已单击鼠标");
 			// 结束您的自定义代码
-			$('#ending').show();
-			$('#animation_container').hide();
+			$('#ending').fadeIn();
+			$('#animation_container').fadeOut();
 			
 			
 		}
