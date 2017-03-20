@@ -91,29 +91,51 @@ var SaveInfo = {
                 SaveInfo.city = $('select[name="ddlCity"] option:selected').val();
                 SaveInfo.agency = $('select[name="agency"] option:selected').val();
                 SaveInfo.cartype = $('select[name="cartype"] option:selected').val();
+                var key = $("input[name='key']").val();
                 var data = {
                     username:SaveInfo.username,
-                    phone:SaveInfo.phone,
-                    province:SaveInfo.province,
-                    city:SaveInfo.city,
-                    agency:SaveInfo.agency,
-                    cartype:SaveInfo.cartype
+                    numberphone:SaveInfo.phone,
+                    dealer:SaveInfo.province+','+SaveInfo.city+','+SaveInfo.agency,
+                    model:SaveInfo.cartype,
+                    key:key
                 };
                 console.log(data);
-                $('#userInfo-box').hide();
-                $('#prizeResult').show();
+                $.ajax({
+                    url:'http://fld.xingyuanauto.com/public/index.php/port/Userdblotter/UserLotter',
+                    type:'post',
+                    data:data,
+                    success:function(obj){
+                        console.log(obj);
+                        obj = JSON.parse(obj);
+                        if(obj.start=='2004'){
+                            console.log(777);
+                            $('#userInfo-box').hide();
+                            $('#prizeResult').show();
+                            if(obj.msg==1){
+                                $('#prizeResult h1').removeClass('notGet').addClass('get');
+                                $('#prizeResult h1 i').html('恭喜您，中了一等奖');
+                                $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
+                            }else if(obj.msg==2){
+                                $('#prizeResult h1').removeClass('notGet').addClass('get');
+                                $('#prizeResult h1 i').html('恭喜您，中了二等奖');
+                                $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
+                            }else if(obj.msg==3){
+                                $('#prizeResult h1').removeClass('notGet').addClass('get');
+                                $('#prizeResult h1 i').html('恭喜您，中了三等奖');
+                                $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
+                            }else{
+                                $('#prizeResult h1').addClass('notGet').removeClass('get');
+                                $('#prizeResult h1 i').html('很抱歉，您没有中奖');
+                                $('#prizeResult p').html('谢谢您的参与');
+                            }
+                            $('#close-prize').click(function(){
+                                $('#userInfo').hide();
+                                $('#prizeResult').hide();
+                            });
+                        }
+                    }
+                })
 
-//					$.ajax({
-//						url:'dddd',
-//						type:'post',
-//						data:data,
-//						success:function(msg){
-//							console.log(msg);
-//							if(msg.Status==0){
-//
-//							}
-//						}
-//					})
             }else{
                 alert('请完善您的报名信息');
             }
@@ -141,10 +163,7 @@ $(function(){
             $('#userInfo-box').show();
             $('#actionRules').hide();
         });
-        $('#close-prize').click(function(){
-            $('#userInfo').hide();
-            $('#prizeResult').hide();
-        });
+
     });
 });
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -155,7 +174,7 @@ function init() {
     canvas.width = w;
     canvas.height = h;
     anim_container = document.getElementById("animation_container");
-    $('#anim_container').css({'width':w,'height':h});
+    $('#anim_container').css({'width':w,'height':h,'position':'absolute','left':'-100%','right':'-100%','top':'-100%','bottom':'-100%'});
     $('#dom_overlay_container').css({'width':w,'height':h});
     dom_overlay_container = document.getElementById("dom_overlay_container");
     images = images||{};
@@ -174,7 +193,7 @@ function handleComplete(evt) {
     for(i=0; i<ssMetadata.length; i++) {
         ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
     }
-    exportRoot = new lib.东标();
+    exportRoot = new lib.PEUGEOT();
     stage = new createjs.Stage(canvas);
     stage.addChild(exportRoot);
     stage.enableMouseOver();
@@ -236,6 +255,6 @@ function handleComplete(evt) {
             lastW = iw; lastH = ih; lastS = sRatio;
         }
     }
-    makeResponsive(true,'width',true,1);
+    makeResponsive(true,'width',true,2);
     fnStartAnimation();
 }

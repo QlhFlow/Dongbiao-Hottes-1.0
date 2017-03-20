@@ -32,7 +32,7 @@
             });
             //动画开始播放音乐
             musicStar.load();
-            musicStar.src="video/Tokyo.mp3";
+            musicStar.src="video/Echo.mp3";
             musicStar.play();
             $(".open").click(function(){
                 musicStar.pause();
@@ -47,6 +47,7 @@
                 $('.btn-music').addClass('open-music');
             });
         }
+
     }, false);
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -70,7 +71,7 @@ $('body').bind("touchstart",function(e){
 });
 //动画开始播放音乐
 musicStar.load();
-musicStar.src="video/Tokyo.mp3";
+musicStar.src="video/Echo.mp3";
 musicStar.play();
 $(".open").click(function(){
     musicStar.pause();

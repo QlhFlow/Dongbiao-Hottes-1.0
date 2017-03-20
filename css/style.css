@@ -85,7 +85,7 @@ video {
   font: inherit;
 }
 body {
-  font-family: "STHeiti", Helvetica, Arial, sans-serif;
+  font-family: Arial, "STHeiti", Helvetica, sans-serif;
   background: #fff;
   font-size: 14px;
   height: 100%;
@@ -203,11 +203,11 @@ body {
     height: 100%;
   }
   .three-min {
-    width: 9.2rem;
-    height: 7.92rem;
+    width: 9.26666667rem;
+    height: 7.94666667rem;
     position: absolute;
-    top: 2.46666667rem;
-    left: 0.4rem;
+    top: 3.28rem;
+    left: 0.29333333rem;
   }
   .phone {
     width: 0.93333333rem;

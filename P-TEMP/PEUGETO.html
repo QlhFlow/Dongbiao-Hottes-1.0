@@ -11,18 +11,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>东标@</title>
+<title>PEUGETO</title>
 <!-- write your code here -->
 <style>
+  body {
+	overflow:hidden;
+  }
   #animation_container {
 	position:absolute;
 	margin:auto;
-	left:0;right:0;
-	top:0;bottom:0;
+	left:-100%;right:-100%;
+	top:-100%;bottom:-100%;
   }
 </style>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="东标@.js?1489981013453"></script>
+<script src="PEUGETO.js"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -45,7 +48,7 @@ function handleComplete(evt) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.东标();
+	exportRoot = new lib.PEUGEOT();
 	stage = new createjs.Stage(canvas);
 	stage.addChild(exportRoot);
 	stage.enableMouseOver();	
@@ -107,7 +110,7 @@ function handleComplete(evt) {
 			lastW = iw; lastH = ih; lastS = sRatio;		
 		}
 	}
-	makeResponsive(true,'both',true,1);	
+	makeResponsive(true,'width',true,2);	
 	fnStartAnimation();
 }
 </script>

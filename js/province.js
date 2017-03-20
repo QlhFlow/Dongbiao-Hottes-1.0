@@ -6,11 +6,11 @@ var ProvinceData = {
     init:function(provinceSelectID, citySelectID, agencyID){
         $.ajax({
             type:'get',
-            url:'http://h5.qlh520.top/FlowBackground/public/index.php/port/city/dealer',
+            url:'http://fld.xingyuanauto.com/public/index.php/port/city/Dealer',
             success:function(msg){
                 //console.log(msg);
                 JSonData = JSON.parse(msg);
-                //console.log(JSonData);
+                console.log(JSonData);
                 if(provinceSelectID){
                     ProvinceData.BindProvince(provinceSelectID);
                 }
@@ -36,7 +36,7 @@ var ProvinceData = {
                 masterObj.options.length = 0;
                 masterObj.options[0] = new Option("省/直辖市", -1);
                 for (var i = 0; i < JSonData.length; i++) {
-                    masterObj.options[masterObj.options.length] = new Option(JSonData[i].dealer_name, JSonData[i].dealer_id);
+                    masterObj.options[masterObj.options.length] = new Option(JSonData[i].name, JSonData[i].id);
                 }
             }
         }
@@ -52,9 +52,9 @@ var ProvinceData = {
             subAreaObj.options.length = 0;
             subAreaObj.options[subAreaObj.options.length] = new Option("城市", -1);
             for (var i = 0; i < JSonData.length; i++) {
-                if (JSonData[i].dealer_id == masterObjid) {
+                if (JSonData[i].id == masterObjid) {
                     for (var j = 0; j < JSonData[i].city.length; j++) {
-                        subAreaObj.options[subAreaObj.options.length] = new Option(JSonData[i].city[j].dealer_name, JSonData[i].city[j].dealer_id);
+                        subAreaObj.options[subAreaObj.options.length] = new Option(JSonData[i].city[j].name, JSonData[i].city[j].id);
                     }
                 }
             }
@@ -78,14 +78,14 @@ var ProvinceData = {
             subAreaObj.options.length = 0;
             subAreaObj.options[subAreaObj.options.length] = new Option("经销商", -1);
             for (var i = 0; i < JSonData.length; i++) {
-                if (JSonData[i].dealer_id == provinceId) {
+                if (JSonData[i].id == provinceId) {
                     var t1 = JSonData[i];
                     for (var j = 0; j < t1.city.length; j++) {
-                        if (t1.city[j].dealer_id == cityId) {
+                        if (t1.city[j].id == cityId) {
                             var t2 = t1.city[j];
                             for (var k = 0; k < t2.dealer.length; k++) {
                                 subAreaObj.options[subAreaObj.options.length] =
-                                    new Option(t2.dealer[k].dealer_name, t2.dealer[k].dealer_id);
+                                    new Option(t2.dealer[k].name, t2.dealer[k].id);
                             }
                             return;
                         }
