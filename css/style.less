@@ -75,62 +75,51 @@ html, body { position: relative;}
             #portrait{width:100%;height:100%;margin: auto;text-align: center;overflow: hidden;position: relative;}
             .bg{width: 100%; height:100%;}
             .three-min{width:750/75rem; height:556/75rem; position: absolute; top:200/75rem; left:0;}
-            .phone2{width: 134/130rem; height: 218/130rem; position: absolute; top: 820/75rem; left: 333/75rem;animation: phone 4s linear infinite;}
+            .phone2{width: 134/130rem; height: 218/130rem; position: absolute; top: 820/75rem; left: 333/75rem;animation: phone 4s linear infinite;-webkit-animation: phone 4s linear infinite;}
             #landscape{ display:none;}
             h3{font-family: 'Microsoft Yahei'; font-size: 24/75rem; color:#ffffff;position: absolute;top:975/75rem;left:325/75rem;}
-//        
             @-webkit-keyframes phone{
                 0%{
-                   -webkit-transform: rotateZ(0deg); 
-                   //-webkit-transform-origin: right bottom;
-                   //transform-origin: right bottom;
+                   -webkit-transform: rotateZ(0deg);
+                  transform: rotateZ(0deg);
                 }
                 25%{
-                    -webkit-transform: rotateZ(90deg); 
-                     //-webkit-transform-origin: right bottom;
-                     //transform-origin: right bottom;
+                    -webkit-transform: rotateZ(90deg);
+                  transform: rotateZ(90deg);
                 }
                 50%{
-                    -webkit-transform: rotateZ(0deg); 
-                    //-webkit-transform-origin: right bottom;
-                    // transform-origin: right bottom;
+                    -webkit-transform: rotateZ(0deg);
+                  transform: rotateZ(0deg);
                 }
                 75%{
-                     -webkit-transform: rotateZ(90deg); 
-                     //-webkit-transform-origin: right bottom;
-                     //transform-origin: right bottom;
+                     -webkit-transform: rotateZ(90deg);
+                  transform: rotateZ(90deg);
                 }
                 100%{
                     -webkit-transform: rotateZ(0deg);
-                    //-webkit-transform-origin: right bottom;
-                    // transform-origin: right bottom;
+                  transform: rotateZ(0deg);
                 }
             } 
             @keyframes phone{
                 0%{
-                   -webkit-transform: rotateZ(0deg); 
-                   //-webkit-transform-origin: right bottom;
-                   //transform-origin: right bottom;
+                  -webkit-transform: rotateZ(0deg);
+                  transform: rotateZ(0deg);
                 }
                 25%{
-                    -webkit-transform: rotateZ(90deg); 
-                     //-webkit-transform-origin: right bottom;
-                     //transform-origin: right bottom;
+                  -webkit-transform: rotateZ(90deg);
+                  transform: rotateZ(90deg);
                 }
                 50%{
-                    -webkit-transform: rotateZ(0deg); 
-                    //-webkit-transform-origin: right bottom;
-                    // transform-origin: right bottom;
+                  -webkit-transform: rotateZ(0deg);
+                  transform: rotateZ(0deg);
                 }
                 75%{
-                     -webkit-transform: rotateZ(90deg); 
-                     //-webkit-transform-origin: right bottom;
-                     //transform-origin: right bottom;
+                  -webkit-transform: rotateZ(90deg);
+                  transform: rotateZ(90deg);
                 }
                 100%{
-                    -webkit-transform: rotateZ(0deg);
-                    //-webkit-transform-origin: right bottom;
-                    // transform-origin: right bottom;
+                  -webkit-transform: rotateZ(0deg);
+                  transform: rotateZ(0deg);
                 }
             }                 
 }
@@ -168,5 +157,31 @@ html, body { position: relative;}
                    }  
             }     
                 
-}            
-    
+}
+.ending{width: 100%; height: 100%;position: absolute;left:0;top:0;background:#fff;}
+#fadeOut{width:100%;height:100%;position: absolute;top:0;left:0;background:#fff;}
+.ending-pic1{width:682/133.4rem; height:646/133.4rem; position: absolute; top:0 ; left:0 ;}
+.ending-pic2{width:563/133.4rem; height:132/133.4rem; position: absolute; top:60/133.4rem; left:742/133.4rem;}
+.ending-pic3{width:573/133.4rem; height:210/133.4rem; position: absolute; top:220/133.4rem ; left:703/133.4rem;}
+.sign-up{width: 550/133.4rem; height: 64/133.4rem; line-height:64/133.4rem;background:#2b69b6; -webkit-transform:skew(-10deg); transform: skew(-10deg);text-align: center;
+  vertical-align:middle;position: absolute; top:519/133.4rem; left: 681/133.4rem;}
+.sign-up span{font-family:'黑体';font-size:26/133.4rem; color: #FFFFFF;}
+.btn-music{width: 53/133.4rem; height: 54/133.4rem;position: absolute; top:28/133.4rem; left: 1247/133.4rem;}
+.open-music{animation: music-btn 3s linear infinite; -webkit-animation: music-btn 3s linear infinite;}
+.music{width:100%; height: 100%;}
+@-webkit-keyframes music-btn{
+  form{
+    -webkit-transform: rotateZ(0deg);
+  }
+  to{
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@keyframes music-btn{
+  form{
+    -webkit-transform: rotateZ(0deg);
+  }
+  to{
+    -webkit-transform: rotateZ(360deg);
+  }
+}

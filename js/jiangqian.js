@@ -142,128 +142,112 @@ var SaveInfo = {
         })
     }
 };
-$(function(){
-    ProvinceData.init('ddlProvince', 'ddlCity','agency');
-    SaveInfo.init();
-    $('#close-userInfo').click(function(){
-        $('#userInfo').hide();
-    });
-    $('#gotoInfo').click(function(e){
-        e.preventDefault();
-        var w = window.innerWidth;
-    var h = window.innerHeight;
-        $('#userInfo').css({'width':w,'height':h}).show();
-        $('#userInfo-box').show();
-        $('#rule-icon').click(function(){
-            $('#userInfo-box').hide();
-            $('#actionRules').show();
-        });
-        $('#close-rules').click(function(){
-            $('#userInfo-box').show();
-            $('#actionRules').hide();
-        });
-
-    });
-});
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init(first){
-    if(first){
-        //var w = window.innerWidth;
-        //var h = window.innerHeight;
-        canvas = document.getElementById("canvas");
-        //var vw = parseFloat($('#ending').css('width'));
-        //var vh = parseFloat($('#ending').css('height'));
-        //canvas.width = vw;
-        //canvas.height = vh;
-        anim_container = document.getElementById("animation_container");
-        dom_overlay_container = document.getElementById("dom_overlay_container");
-        //alert(vw+','+vh);
-        images = images||{};
-        var loader = new createjs.LoadQueue(false);
-        loader.addEventListener("fileload", handleFileLoad);
-        loader.addEventListener("complete", handleComplete);
-        loader.loadManifest(lib.properties.manifest);
-    }else{
-        return ;
-    }
-}
-function handleFileLoad(evt) {
-    if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
-function handleComplete(evt) {
-    //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-    var queue = evt.target;
-    var ssMetadata = lib.ssMetadata;
-    for(i=0; i<ssMetadata.length; i++) {
-        ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-    }
-    exportRoot = new lib.PEUGEOT();
-    stage = new createjs.Stage(canvas);
-    stage.addChild(exportRoot);
-    stage.enableMouseOver();
-    //Registers the "tick" event listener.
-    fnStartAnimation = function() {
-        createjs.Ticker.setFPS(lib.properties.fps);
-        createjs.Ticker.addEventListener("tick", handleTick)
-        function handleTick(event) {
-            var cameraInstance = exportRoot.___camera___instance;
-            if(cameraInstance)
-            {
-                if(cameraInstance._off != null && cameraInstance._off == true)
-                    exportRoot.transformMatrix = new createjs.Matrix2D();
-                else
-                {
-                    var mat = cameraInstance.getMatrix();
-                    var stageCenter = { 'x' : lib.properties.width/2, 'y' : lib.properties.height/2 };
-                    mat.tx -= stageCenter.x;
-                    mat.ty -= stageCenter.y;
-                    var inverseMat = mat.invert();
-                    inverseMat.prependTransform(stageCenter.x, stageCenter.y, 1, 1, 0, 0, 0, 0, 0);
-                    inverseMat.appendTransform(-stageCenter.x, -stageCenter.y, 1, 1, 0, 0, 0, 0, 0);
-                    exportRoot.transformMatrix = inverseMat;
-                }
-            }
-            stage.update();
-        }
-    };
-    //Code to support hidpi screens and responsive scaling.
-    function makeResponsive(isResp, respDim, isScale, scaleType) {
-        var lastW, lastH, lastS=1;
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        function resizeCanvas() {
-            var w = lib.properties.width, h = lib.properties.height;
-            //alert(w+','+h);
-            var iw = window.innerWidth, ih=window.innerHeight;
-            //alert(iw+','+ih);
-            var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
-            if(isResp) {
-                if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-                    sRatio = lastS;
-                }
-                else if(!isScale) {
-                    if(iw<w || ih<h)
-                        sRatio = Math.min(xRatio, yRatio);
-                }
-                else if(scaleType==1) {
-                    sRatio = Math.min(xRatio, yRatio);
-                }
-                else if(scaleType==2) {
-                    sRatio = Math.max(xRatio, yRatio);
-                    alert(sRatio);
-                }
-            }
-
-            canvas.width = w*pRatio*sRatio;//1334;
-            canvas.height = h*pRatio*sRatio;//646
-            alert(w*pRatio*sRatio+','+h*pRatio*sRatio+','+w*sRatio+','+h*sRatio+','+pRatio*sRatio+','+pRatio*sRatio);
-            canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';//667
-            canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';//323
-            stage.scaleX = pRatio*sRatio;
-            stage.scaleY = pRatio*sRatio;
-            lastW = iw; lastH = ih; lastS = sRatio;
-        }
-    }
-    makeResponsive(true,'width',true,2);
-    fnStartAnimation();
-}
+//$(function(){
+//    ProvinceData.init('ddlProvince', 'ddlCity','agency');
+//    SaveInfo.init();
+//    $('#close-userInfo').click(function(){
+//        $('#userInfo').hide();
+//    });
+//    $('#gotoInfo').click(function(e){
+//        e.preventDefault();
+//        var w = window.innerWidth;
+//    var h = window.innerHeight;
+//        $('#userInfo').css({'width':w,'height':h}).show();
+//        $('#userInfo-box').show();
+//        $('#rule-icon').click(function(){
+//            $('#userInfo-box').hide();
+//            $('#actionRules').show();
+//        });
+//        $('#close-rules').click(function(){
+//            $('#userInfo-box').show();
+//            $('#actionRules').hide();
+//        });
+//
+//    });
+//});
+//var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+//function init() {
+//    canvas = document.getElementById("canvas");
+//    anim_container = document.getElementById("animation_container");
+//    dom_overlay_container = document.getElementById("dom_overlay_container");
+//    images = images||{};
+//    var loader = new createjs.LoadQueue(false);
+//    loader.addEventListener("fileload", handleFileLoad);
+//    loader.addEventListener("complete", handleComplete);
+//    loader.loadManifest(lib.properties.manifest);
+//}
+//function handleFileLoad(evt) {
+//    if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+//}
+//function handleComplete(evt) {
+//    //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+//    var queue = evt.target;
+//    var ssMetadata = lib.ssMetadata;
+//    for(i=0; i<ssMetadata.length; i++) {
+//        ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+//    }
+//    exportRoot = new lib.PEUGEOT();
+//    stage = new createjs.Stage(canvas);
+//    stage.addChild(exportRoot);
+//    stage.enableMouseOver();
+//    //Registers the "tick" event listener.
+//    fnStartAnimation = function() {
+//        createjs.Ticker.setFPS(lib.properties.fps);
+//        createjs.Ticker.addEventListener("tick", handleTick)
+//        function handleTick(event) {
+//            var cameraInstance = exportRoot.___camera___instance;
+//            if(cameraInstance)
+//            {
+//                if(cameraInstance._off != null && cameraInstance._off == true)
+//                    exportRoot.transformMatrix = new createjs.Matrix2D();
+//                else
+//                {
+//                    var mat = cameraInstance.getMatrix();
+//                    var stageCenter = { 'x' : lib.properties.width/2, 'y' : lib.properties.height/2 };
+//                    mat.tx -= stageCenter.x;
+//                    mat.ty -= stageCenter.y;
+//                    var inverseMat = mat.invert();
+//                    inverseMat.prependTransform(stageCenter.x, stageCenter.y, 1, 1, 0, 0, 0, 0, 0);
+//                    inverseMat.appendTransform(-stageCenter.x, -stageCenter.y, 1, 1, 0, 0, 0, 0, 0);
+//                    exportRoot.transformMatrix = inverseMat;
+//                }
+//            }
+//            stage.update();
+//        }
+//    }
+//    //Code to support hidpi screens and responsive scaling.
+//    function makeResponsive(isResp, respDim, isScale, scaleType) {
+//        var lastW, lastH, lastS=1;
+//        window.addEventListener('resize', resizeCanvas);
+//        resizeCanvas();
+//        function resizeCanvas() {
+//            var w = lib.properties.width, h = lib.properties.height;
+//            var iw = window.innerWidth, ih=window.innerHeight;
+//            var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+//            if(isResp) {
+//                if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+//                    sRatio = lastS;
+//                }
+//                else if(!isScale) {
+//                    if(iw<w || ih<h)
+//                        sRatio = Math.min(xRatio, yRatio);
+//                }
+//                else if(scaleType==1) {
+//                    sRatio = Math.min(xRatio, yRatio);
+//                }
+//                else if(scaleType==2) {
+//                    sRatio = Math.max(xRatio, yRatio);
+//                }
+//            }
+//            canvas.width = w*pRatio*sRatio;
+//            canvas.height = h*pRatio*sRatio;
+//            canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';
+//            canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+//            stage.scaleX = pRatio*sRatio;
+//            stage.scaleY = pRatio*sRatio;
+//            lastW = iw; lastH = ih; lastS = sRatio;
+//        }
+//    }
+//    makeResponsive(true,'width',true,2);
+//    fnStartAnimation();
+//}

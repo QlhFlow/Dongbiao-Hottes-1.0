@@ -202,16 +202,3 @@ select {
 .prize-result .prize-result-info .notGet {
   color: #2B69B6;
 }
-#dom_overlay_container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-#animation_container {
-  position: absolute;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
