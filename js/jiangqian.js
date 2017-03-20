@@ -145,7 +145,6 @@ var SaveInfo = {
 $(function(){
     ProvinceData.init('ddlProvince', 'ddlCity','agency');
     SaveInfo.init();
-    
     $('#close-userInfo').click(function(){
         $('#userInfo').hide();
     });
