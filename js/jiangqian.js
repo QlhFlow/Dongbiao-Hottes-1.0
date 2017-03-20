@@ -166,21 +166,25 @@ $(function(){
     });
 });
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init(){
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    canvas = document.getElementById("canvas");
-    canvas.width = w;
-    canvas.height = h;
-    anim_container = document.getElementById("animation_container");
-    dom_overlay_container = document.getElementById("dom_overlay_container");
-    $('#animation_container').css({'width':w,'height':h,'position':'absolute','left':'-100%','right':'-100%','top':'-100%','bottom':'-100%'});
-    $('#dom_overlay_container').css({'width':w,'height':h,'left':0,'top':0});
-    images = images||{};
-    var loader = new createjs.LoadQueue(false);
-    loader.addEventListener("fileload", handleFileLoad);
-    loader.addEventListener("complete", handleComplete);
-    loader.loadManifest(lib.properties.manifest);
+function init(first){
+    if(first){
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        canvas = document.getElementById("canvas");
+        canvas.width = w;
+        canvas.height = h;
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById("dom_overlay_container");
+        $('#animation_container').css({'width':w,'height':h,'position':'absolute','left':0,'top':0});
+        $('#dom_overlay_container').css({'width':w,'height':h,'left':0,'top':0});
+        images = images||{};
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", handleFileLoad);
+        loader.addEventListener("complete", handleComplete);
+        loader.loadManifest(lib.properties.manifest);
+    }else{
+        return ;
+    }
 }
 function handleFileLoad(evt) {
     if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
