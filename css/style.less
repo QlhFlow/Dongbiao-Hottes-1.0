@@ -66,77 +66,77 @@ html, body { position: relative;}
 /*********竖屏********/
 @media screen and (orientation: portrait) { 
             #page-box{width: 100%;height: 100%;}
-            .page01{position:absolute; top:0;left:0;width:100%;height:100%;background-size:cover;z-index: 1000;}              
+            .page01{position:absolute; top:0;left:0;width:100%;height:100%;background-size:cover;z-index: 1000;background:#000;}
             .img-load-now{ position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);  }
             .loading{width: 130/75rem; height: 180/75rem;background-image:url(../img/loading.gif);background-size:130/75rem 180/75rem;
                     animation: birdloadingla 1s ease  infinite;-webkit-animation: birdloadingla 1s ease  infinite; }          
             .mask{ text-align: center;margin-top: 30/75rem; }  
             #portrait{width:100%;height:100%;margin: auto;text-align: center;overflow: hidden;position: relative;}
             .bg{width: 100%; height:100%;}
-            .three-min{width:695/75rem; height:596/75rem; position: absolute; top:246/75rem; left:22/75rem;}
-            .phone{width: 70/75rem; height: 83/75rem; position: absolute; top:867/75rem ; left:349/75rem ; }
-            .phone2{width: 32/75rem; height: 64/75rem; position: absolute; top: 885/75rem; left: 352/75rem;animation: phone 3s linear infinite;}
+            .three-min{width:750/75rem; height:556/75rem; position: absolute; top:282/75rem; left:0;}
+            .phone2{width: 134/130rem; height: 218/130rem; position: absolute; top: 850/75rem; left: 333/75rem;animation: phone 4s linear infinite;}
             #landscape{ display:none;}
-            h3{font-family: 'Microsoft Yahei'; font-size: 24/75rem; color:#ffffff;position: absolute;top:967/75rem;left:325/75rem;}
+            h3{font-family: 'Microsoft Yahei'; font-size: 24/75rem; color:#ffffff;position: absolute;top:995/75rem;left:325/75rem;}
 //        
             @-webkit-keyframes phone{
                 0%{
                    -webkit-transform: rotateZ(0deg); 
-                   -webkit-transform-origin: right bottom; 
-                   transform-origin: right bottom; 
+                   //-webkit-transform-origin: right bottom;
+                   //transform-origin: right bottom;
                 }
                 25%{
                     -webkit-transform: rotateZ(90deg); 
-                     -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom; 
+                     //-webkit-transform-origin: right bottom;
+                     //transform-origin: right bottom;
                 }
                 50%{
                     -webkit-transform: rotateZ(0deg); 
-                    -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom; 
+                    //-webkit-transform-origin: right bottom;
+                    // transform-origin: right bottom;
                 }
                 75%{
                      -webkit-transform: rotateZ(90deg); 
-                     -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom; 
+                     //-webkit-transform-origin: right bottom;
+                     //transform-origin: right bottom;
                 }
                 100%{
                     -webkit-transform: rotateZ(0deg);
-                    -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom;  
+                    //-webkit-transform-origin: right bottom;
+                    // transform-origin: right bottom;
                 }
             } 
             @keyframes phone{
                 0%{
                    -webkit-transform: rotateZ(0deg); 
-                   -webkit-transform-origin: right bottom; 
-                   transform-origin: right bottom; 
+                   //-webkit-transform-origin: right bottom;
+                   //transform-origin: right bottom;
                 }
                 25%{
                     -webkit-transform: rotateZ(90deg); 
-                     -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom; 
+                     //-webkit-transform-origin: right bottom;
+                     //transform-origin: right bottom;
                 }
                 50%{
                     -webkit-transform: rotateZ(0deg); 
-                    -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom; 
+                    //-webkit-transform-origin: right bottom;
+                    // transform-origin: right bottom;
                 }
                 75%{
                      -webkit-transform: rotateZ(90deg); 
-                     -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom; 
+                     //-webkit-transform-origin: right bottom;
+                     //transform-origin: right bottom;
                 }
                 100%{
                     -webkit-transform: rotateZ(0deg);
-                    -webkit-transform-origin: right bottom; 
-                     transform-origin: right bottom;  
+                    //-webkit-transform-origin: right bottom;
+                    // transform-origin: right bottom;
                 }
             }                 
 }
 
 /*********横屏********/
 @media screen and (orientation: landscape) {
+            #page-box{width: 100%;height: 100%;}
             #portrait{display:none; }
             #landscape{display:block; position: relative;overflow: hidden;}
             .ending{width: 100%; height: 100%;}
