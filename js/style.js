@@ -16,10 +16,9 @@
             //$('#landscape').css({'display':'block','overflow':'hidden','position':'relative'});
             var w = window.innerWidth;
             var h = window.innerHeight;
-          $(function(){
-              init();
-          });
-
+            $(function(){
+                init();
+            });
 			$("body").css({"width":w,"height":h});
             document.addEventListener("WeixinJSBridgeReady", function () {
                 audioAutoPlay('musicStar');

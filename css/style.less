@@ -71,7 +71,7 @@ html, body { position: relative;}
             .loading{width: 130/75rem; height: 180/75rem;background-image:url(../img/loading.gif);background-size:130/75rem 180/75rem;
                     animation: birdloadingla 1s ease  infinite;-webkit-animation: birdloadingla 1s ease  infinite; }          
             .mask{ text-align: center;margin-top: 30/75rem; }  
-            #portrait{width:100%;height:100%;margin: auto;text-align: center;}
+            #portrait{width:100%;height:100%;margin: auto;text-align: center;overflow: hidden;position: relative;}
             .bg{width: 100%; height:100%;}
             .three-min{width:695/75rem; height:596/75rem; position: absolute; top:246/75rem; left:22/75rem;}
             .phone{width: 70/75rem; height: 83/75rem; position: absolute; top:867/75rem ; left:349/75rem ; }
@@ -137,7 +137,7 @@ html, body { position: relative;}
 
 /*********横屏********/
 @media screen and (orientation: landscape) {
-            #portrait{display:none; overflow: hidden}
+            #portrait{display:none; }
             #landscape{display:block; position: relative;overflow: hidden;}
             .ending{width: 100%; height: 100%;}
             .ending-pic1{width:682/133.4rem; height:646/133.4rem; position: absolute; top:0 ; left:0 ;}

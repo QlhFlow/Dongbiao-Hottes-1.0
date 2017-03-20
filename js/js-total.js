@@ -19,7 +19,6 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
         $(function(){
             init();
         });
-
         $("#portrait").css("display","none");
         $("body").css({"width":w,"height":h});
         document.addEventListener("WeixinJSBridgeReady", function () {

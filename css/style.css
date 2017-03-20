@@ -197,6 +197,8 @@ body {
     height: 100%;
     margin: auto;
     text-align: center;
+    overflow: hidden;
+    position: relative;
   }
   .bg {
     width: 100%;
@@ -294,7 +296,6 @@ body {
 @media screen and (orientation: landscape) {
   #portrait {
     display: none;
-    overflow: hidden;
   }
   #landscape {
     display: block;
