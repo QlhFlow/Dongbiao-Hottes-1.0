@@ -3,17 +3,17 @@
     var musicStar = document.getElementById('musicStar');
     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
         if (window.orientation === 180 || window.orientation === 0) {
-            //alert('竖屏状态！');
-            $('#landscape').css({'display':'none','overflow':'hidden'});
-            $('#portrait').css({'display':'block','overflow':'hidden'});
+            alert('竖屏状态！');
+            //$('#landscape').css({'display':'none','overflow':'hidden'});
+            //$('#portrait').css({'display':'block','overflow':'hidden'});
             if(musicStar.played){
                 musicStar.pause();
             }
         }
         if (window.orientation === 90 || window.orientation === -90 ){
-            //alert('横屏状态！');
-            $('#portrait').css({'display':'none','overflow':'hidden'});
-            $('#landscape').css({'display':'block','overflow':'hidden','position':'relative'});
+            alert('横屏状态！');
+            //$('#portrait').css({'display':'none','overflow':'hidden'});
+            //$('#landscape').css({'display':'block','overflow':'hidden','position':'relative'});
             var w = window.innerWidth;
             var h = window.innerHeight;
           $(function(){
