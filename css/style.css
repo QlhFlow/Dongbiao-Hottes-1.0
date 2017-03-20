@@ -192,6 +192,12 @@ body {
   .mask {
     text-align: center;
     margin-top: 0.4rem;
+    font-size: 0.26986507rem;
+    color: #fff;
+  }
+  .mask span {
+    color: #fff;
+    font-size: 0.26986507rem;
   }
   #portrait {
     width: 100%;
@@ -283,6 +289,18 @@ body {
   .ending {
     width: 100%;
     height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+  }
+  #fadeOut {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
   }
   .ending-pic1 {
     width: 5.11244378rem;

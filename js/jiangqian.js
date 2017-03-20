@@ -168,15 +168,16 @@ $(function(){
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init(first){
     if(first){
-        var w = window.innerWidth;
-        var h = window.innerHeight;
+        //var w = window.innerWidth;
+        //var h = window.innerHeight;
         canvas = document.getElementById("canvas");
-        canvas.width = w;
-        canvas.height = h;
+        //var vw = parseFloat($('#ending').css('width'));
+        //var vh = parseFloat($('#ending').css('height'));
+        //canvas.width = vw;
+        //canvas.height = vh;
         anim_container = document.getElementById("animation_container");
         dom_overlay_container = document.getElementById("dom_overlay_container");
-        $('#animation_container').css({'width':w,'height':h,'position':'absolute','left':0,'top':0});
-        $('#dom_overlay_container').css({'width':w,'height':h,'left':0,'top':0});
+        //alert(vw+','+vh);
         images = images||{};
         var loader = new createjs.LoadQueue(false);
         loader.addEventListener("fileload", handleFileLoad);
@@ -232,7 +233,9 @@ function handleComplete(evt) {
         resizeCanvas();
         function resizeCanvas() {
             var w = lib.properties.width, h = lib.properties.height;
+            //alert(w+','+h);
             var iw = window.innerWidth, ih=window.innerHeight;
+            //alert(iw+','+ih);
             var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
             if(isResp) {
                 if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
@@ -247,12 +250,15 @@ function handleComplete(evt) {
                 }
                 else if(scaleType==2) {
                     sRatio = Math.max(xRatio, yRatio);
+                    alert(sRatio);
                 }
             }
-            canvas.width = w*pRatio*sRatio;
-            canvas.height = h*pRatio*sRatio;
-            canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';
-            canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+
+            canvas.width = w*pRatio*sRatio;//1334;
+            canvas.height = h*pRatio*sRatio;//646
+            alert(w*pRatio*sRatio+','+h*pRatio*sRatio+','+w*sRatio+','+h*sRatio+','+pRatio*sRatio+','+pRatio*sRatio);
+            canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';//667
+            canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';//323
             stage.scaleX = pRatio*sRatio;
             stage.scaleY = pRatio*sRatio;
             lastW = iw; lastH = ih; lastS = sRatio;

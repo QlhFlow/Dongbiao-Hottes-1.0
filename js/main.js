@@ -66,14 +66,13 @@ function funImgLoading(containID,txtID,fnComplete) {
     function funLoad() {
         //�����
         var percent = parseInt((++imgLoadedNum) / imgAllNum * 100);
-
         loadDiv.innerHTML = percent+'%';
+        $('#img-loading-txt').html(percent+'%');
         $('#portrait').css('display','none');
         // console.log(percent);
         if (percent<=50) {
         } else {
             if(percent >= 100) {
-                alert(55);
                 setTimeout(fnComplete,500);
                 $('#portrait').fadeIn();
                 sessionStorage.setItem("pageloaded", "true");

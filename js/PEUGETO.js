@@ -1,70 +1,9 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
-lib.webFontTxtInst = {}; 
-var loadedTypekitCount = 0;
-var loadedGoogleCount = 0;
-var gFontsUpdateCacheList = [];
-var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
-
-lib.updateListCache = function (cacheList) {		
-	for(var i = 0; i < cacheList.length; i++) {		
-		if(cacheList[i].cacheCanvas)		
-			cacheList[i].updateCache();		
-	}		
-};		
-
-lib.addElementsToCache = function (textInst, cacheList) {		
-	var cur = textInst;		
-	while(cur != exportRoot) {		
-		if(cacheList.indexOf(cur) != -1)		
-			break;		
-		cur = cur.parent;		
-	}		
-	if(cur != exportRoot) {		
-		var cur2 = textInst;		
-		var index = cacheList.indexOf(cur);		
-		while(cur2 != cur) {		
-			cacheList.splice(index, 0, cur2);		
-			cur2 = cur2.parent;		
-			index++;		
-		}		
-	}		
-	else {		
-		cur = textInst;		
-		while(cur != exportRoot) {		
-			cacheList.push(cur);		
-			cur = cur.parent;		
-		}		
-	}		
-};		
-
-lib.gfontAvailable = function(family, totalGoogleCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
-
-	loadedGoogleCount++;		
-	if(loadedGoogleCount == totalGoogleCount) {		
-		lib.updateListCache(gFontsUpdateCacheList);		
-	}		
-};		
-
-lib.tfontAvailable = function(family, totalTypekitCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
-
-	loadedTypekitCount++;		
-	if(loadedTypekitCount == totalTypekitCount) {		
-		lib.updateListCache(tFontsUpdateCacheList);		
-	}		
-};
 // symbols:
 
 
@@ -2352,7 +2291,7 @@ p.nominalBounds = new cjs.Rectangle(108.4,-14.3,478.8,142.3);
 		
 		function fl_ClickToGoToAndPlayFromFrame_3()
 		{
-			console.log(666);
+		
 			this.play();
 			this.button_4.removeEventListener('click');
 		}
@@ -2375,7 +2314,8 @@ p.nominalBounds = new cjs.Rectangle(108.4,-14.3,478.8,142.3);
 			//alert("已单击鼠标");
 			// 结束您的自定义代码
 			$('#ending').show();
-			$('#animation_container').fadeOut();
+			$('#fadeOut').fadeOut(500);
+			$('#animation_container').hide();
 			
 			
 		}
@@ -2540,13 +2480,12 @@ lib.properties = {
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
-	webfonts: {},
 	manifest: [
-		{src:"images/che.jpg", id:"che"},
-		{src:"images/setsdgsdgs.png", id:"setsdgsdgs"},
-		{src:"images/stdfgnrthdr.png", id:"stdfgnrthdr"},
-		{src:"images/yetet.png", id:"yetet"},
-		{src:"images/背景图_.jpg", id:"背景图"}
+		{src:"images/che.jpg?1490002719281", id:"che"},
+		{src:"images/setsdgsdgs.png?1490002719281", id:"setsdgsdgs"},
+		{src:"images/stdfgnrthdr.png?1490002719281", id:"stdfgnrthdr"},
+		{src:"images/yetet.png?1490002719281", id:"yetet"},
+		{src:"images/背景图_.jpg?1490002719281", id:"背景图"}
 	],
 	preloads: []
 };
