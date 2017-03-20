@@ -125,9 +125,7 @@ select {
   width: 100%;
   height: 100%;
   background: #fff;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  overflow-scrolling: touch;
+  overflow: hidden;
   position: relative;
 }
 .action-rules #close-rules {

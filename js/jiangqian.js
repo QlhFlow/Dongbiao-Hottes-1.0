@@ -221,7 +221,7 @@ function handleComplete(evt) {
             }
             stage.update();
         }
-    }
+    };
     //Code to support hidpi screens and responsive scaling.
     function makeResponsive(isResp, respDim, isScale, scaleType) {
         var lastW, lastH, lastS=1;
