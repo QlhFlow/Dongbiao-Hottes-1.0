@@ -9,6 +9,10 @@
             if(musicStar.played){
                 musicStar.pause();
             }
+            var w = window.innerWidth;
+            var h = window.innerHeight;
+            $("body").css({"width":w,"height":h});
+            $('#landscape').css({'display':'block'});
         }
         if (window.orientation === 90 || window.orientation === -90 ){
             //alert('横屏状态！');
@@ -19,6 +23,7 @@
             $(function(){
                 init();
             });
+            $("#portrait").css("display","none");
 			$("body").css({"width":w,"height":h});
             document.addEventListener("WeixinJSBridgeReady", function () {
                 audioAutoPlay('musicStar');
