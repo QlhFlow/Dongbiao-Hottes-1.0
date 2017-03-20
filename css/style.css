@@ -282,6 +282,10 @@ body {
       transform: rotateZ(0deg);
     }
   }
+  .landscapeWeixin {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+  }
 }
 /*********横屏********/
 @media screen and (orientation: landscape) {
@@ -457,16 +461,20 @@ body {
 @-webkit-keyframes music-btn {
   form {
     -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
   to {
     -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
   }
 }
 @keyframes music-btn {
   form {
     -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
   to {
     -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
   }
 }

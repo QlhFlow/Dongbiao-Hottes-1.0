@@ -1,43 +1,46 @@
-//横屏
-//var mql = window.matchMedia('(orientation: portrait)');
-//console.log(mql);
-//function handleOrientationChange(mql) {
-//    if(mql.matches) {
-//        portrait();  // 竖屏
-//    }else {
-//        landscape(); // 横屏
-//    }
-//}
-//// 输出当前屏幕模式
-//handleOrientationChange(mql);
-//// 监听屏幕模式变化
-//mql.addEventListener(handleOrientationChange);
-//
-//var mql = window.matchMedia("(orientation: portrait)");
-//
-//if(mql.matches) {
-//         alert('portrait');   // 竖屏
-//    portrait();
-//}else {
-//        //alert('landscape');  // 横屏
-//    landscape();
-//}
+
 var musicStar = document.getElementById('musicStar');
 var firstInit = true;
-window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-    if (window.orientation === 180 || window.orientation === 0) {
-        portrait();
-
+function isAndroid(){
+    var u = navigator.userAgent;
+    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
+        return true;
     }
-    if (window.orientation === 90 || window.orientation === -90 ){
-        landscape();
+}
+function isWeiXin(){
+    var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+        return true;
     }
+}
+if(isAndroid()&&isWeiXin()){
+    portrait();
+    var timer = setInterval(function(){
+        if(window.innerHeight<window.innerWidth){
+            landscape();
+            $('body').addClass('landscapeWeixin');
+            clearInterval(timer);
+        }
+    },100);
+}else{
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+        if (window.orientation === 180 || window.orientation === 0) {
+            portrait();
 
-}, false);
+        }
+        if (window.orientation === -90 || window.orientation === 90 ){
+            landscape();
+        }
+    }, false);
+}
 
 function landscape(){
     var w = window.innerWidth;
     var h = window.innerHeight;
+    if($('body').hasClass('landscapeWeixin')){
+        w = h;
+        h = w;
+    }
     $(function(){
         init(firstInit);
         $("#portrait").css("display","none");
@@ -99,9 +102,17 @@ function landscape(){
     });
     var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
     function init() {
+        var iw = window.innerWidth;
+        var ih = window.innerHeight;
         canvas = document.getElementById("canvas");
+        canvas.width = iw;
+        canvas.height = ih;
+
         anim_container = document.getElementById("animation_container");
         dom_overlay_container = document.getElementById("dom_overlay_container");
+        $('#anim_container').css({'width':iw,'height':ih});
+        $('#canvas').css({'width':iw,'height':ih});
+        $('#dom_overlay_container').css({'width':iw,'height':ih});
         images = images||{};
         var loader = new createjs.LoadQueue(false);
         loader.addEventListener("fileload", handleFileLoad);
@@ -146,7 +157,7 @@ function landscape(){
                 }
                 stage.update();
             }
-        }
+        };
         //Code to support hidpi screens and responsive scaling.
         function makeResponsive(isResp, respDim, isScale, scaleType) {
             var lastW, lastH, lastS=1;
@@ -169,6 +180,18 @@ function landscape(){
                     }
                     else if(scaleType==2) {
                         sRatio = Math.max(xRatio, yRatio);
+                    }
+                }
+                function isAndroid(){
+                    var u = navigator.userAgent;
+                    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
+                        return true;
+                    }
+                }
+                function isWeiXin(){
+                    var ua = window.navigator.userAgent.toLowerCase();
+                    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+                        return true;
                     }
                 }
                 canvas.width = w*pRatio*sRatio;
