@@ -89,6 +89,7 @@ var loadingPage = document.getElementById("loadingPage");
 funImgLoading("page-box","img-loading-txt",function(){
     if(sessionStorage.getItem("pageloaded")){
         loadingPage.style.display = "none";
+        $('#portrait').fadeIn();
     }
 });
 /******rem ����*******/
