@@ -7,7 +7,9 @@
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
-    <link rel="stylesheet" type="text/css" href="css/style-total.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="css/style-total.css"/>-->
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/styleJQ.css"/>
     <script>
         document.addEventListener("WeixinJSBridgeReady", function () {
             audioAutoPlay('musicStar');
@@ -35,7 +37,7 @@
     <!--横屏体验内容页面-->
     <div id="landscape" style="width:100%;height:100%;position: absolute;top:0;left:0">
         <!--动画部分-->
-        <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); ">
+        <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00);margin:auto;left:-100%;right:-100%;top:-100%;bottom:-100%; ">
             <canvas id="canvas"  style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
             <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden;  position: absolute; left: 0; top: 0; display: block;">
             </div>
