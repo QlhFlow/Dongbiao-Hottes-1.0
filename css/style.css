@@ -183,7 +183,7 @@ body {
   .loading {
     width: 1.73333333rem;
     height: 2.4rem;
-    background-image: url(../img/无标题-5.gif);
+    background-image: url(../img/loading.gif);
     background-size: 1.73333333rem 2.4rem;
     animation: birdloadingla 1s ease  infinite;
     -webkit-animation: birdloadingla 1s ease  infinite;
@@ -228,7 +228,7 @@ body {
     display: none;
   }
   h3 {
-    font-family: '微软雅黑';
+    font-family: 'Microsoft Yahei';
     font-size: 0.32rem;
     color: #ffffff;
     position: absolute;
@@ -299,6 +299,7 @@ body {
   #landscape {
     display: block;
     position: relative;
+    overflow: hidden;
   }
   .ending {
     width: 100%;

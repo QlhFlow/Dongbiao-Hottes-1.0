@@ -28,15 +28,13 @@ var ProvinceData = {
         });
     },
     BindProvince:function(provinceSelectID){
-        console.log(333);
         if (JSonData && JSonData.length > 0) {
             var masterObj = document.getElementById(provinceSelectID);
             if (masterObj && masterObj.options) {
-                console.log(333);
                 masterObj.options.length = 0;
                 masterObj.options[0] = new Option("省/直辖市", -1);
                 for (var i = 0; i < JSonData.length; i++) {
-                    masterObj.options[masterObj.options.length] = new Option(JSonData[i].name, JSonData[i].id);
+                    masterObj.options[masterObj.options.length] = new Option(JSonData[i].dealer_name, JSonData[i].dealer_id);
                 }
             }
         }
@@ -52,9 +50,9 @@ var ProvinceData = {
             subAreaObj.options.length = 0;
             subAreaObj.options[subAreaObj.options.length] = new Option("城市", -1);
             for (var i = 0; i < JSonData.length; i++) {
-                if (JSonData[i].id == masterObjid) {
+                if (JSonData[i].dealer_id == masterObjid) {
                     for (var j = 0; j < JSonData[i].city.length; j++) {
-                        subAreaObj.options[subAreaObj.options.length] = new Option(JSonData[i].city[j].name, JSonData[i].city[j].id);
+                        subAreaObj.options[subAreaObj.options.length] = new Option(JSonData[i].city[j].dealer_name, JSonData[i].city[j].dealer_id);
                     }
                 }
             }
@@ -78,14 +76,14 @@ var ProvinceData = {
             subAreaObj.options.length = 0;
             subAreaObj.options[subAreaObj.options.length] = new Option("经销商", -1);
             for (var i = 0; i < JSonData.length; i++) {
-                if (JSonData[i].id == provinceId) {
+                if (JSonData[i].dealer_id == provinceId) {
                     var t1 = JSonData[i];
                     for (var j = 0; j < t1.city.length; j++) {
-                        if (t1.city[j].id == cityId) {
+                        if (t1.city[j].dealer_id == cityId) {
                             var t2 = t1.city[j];
                             for (var k = 0; k < t2.dealer.length; k++) {
                                 subAreaObj.options[subAreaObj.options.length] =
-                                    new Option(t2.dealer[k].name, t2.dealer[k].id);
+                                    new Option(t2.dealer[k].dealer_name, t2.dealer[k].dealer_id);
                             }
                             return;
                         }

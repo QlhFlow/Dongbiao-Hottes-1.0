@@ -4,163 +4,16 @@
 /**
  * Created by jiangqian on 2017/1/12.
  */
-//var musicStar = document.getElementById('musicStar');
-//var musicChange = document.getElementById('musicChange');
-//$(function(){
-//    var musicStar = document.getElementById('musicStar');
-//    var musicChange = document.getElementById('musicChange');
-//    musicStar.load();
-//    musicStar.src="res/music-one.mp3";
-//    musicStar.play();
-//});
-/***?§Ø???????????¨À??????????**/
-function funImgLoading(containID,txtID,fnComplete) {
-    if (sessionStorage.getItem("pageloaded")=="true") {
-        fnComplete();
-        return false;
-    }
-    var box = document.getElementById(containID);
-    var domTag = box.getElementsByTagName("*");
-    var domLen = domTag.length;
-
-    var imgLoadedNum = 0;
-
-    var imgAllNum = 0;
-
-    var loadDiv = document.getElementById(txtID);
-
-    for(var i = 0; i < domLen; i++) {
-        var thisDom = domTag[i];
-
-        var imgUrl = window.getComputedStyle(thisDom).getPropertyValue("background-image");
-
-
-        var imgNewUrl = imgUrl.match(/[^url\("'](.+)[^'"\)]/g);
-
-
-        if(imgNewUrl[0].indexOf("/") != -1) {
-
-            imgAllNum++;
-
-            var imgNewUrlStr = imgNewUrl[0];
-
-            var bgimgElement = document.createElement("img");
-            bgimgElement.setAttribute("src", imgNewUrlStr);
-
-            bgimgElement.addEventListener("load", funLoad);
-
-        }
-
-        else if(thisDom.tagName == "IMG") {
-
-            imgAllNum++;
-
-            if(thisDom.complete){
-
-                ++imgLoadedNum;
-            }else{
-
-                thisDom.addEventListener("load", funLoad);
-            }
-
-        }
-    }
-
-    function funLoad() {
-        //?????
-        var percent = parseInt((++imgLoadedNum) / imgAllNum * 100);
-
-        loadDiv.innerHTML = percent+'%';
-        $('#portrait').css('display','none');
-        // console.log(percent);
-        if (percent<=50) {
-
-        } else {
-
-
-            if(percent >= 100) {
-
-                setTimeout(fnComplete,500);
-                $('#portrait').fadeIn();
-                sessionStorage.setItem("pageloaded", "true");
-            }
-        }
-    }
-}
-var loadingPage = document.getElementById("loadingPage");
-
-funImgLoading("page-box","img-loading-txt",function(){
-    if(sessionStorage.getItem("pageloaded")){
-        loadingPage.style.display = "none";
-    }
-});
-/******rem ????*******/
-(function(win){
-    var remCalc = {};
-    var docEl = win.document.documentElement,
-        tid,
-        hasRem = true;
-    hasZoom = true;
-    designWidth = 750;
-    function refresh(){
-        var width = docEl.getBoundingClientRect().width;
-        if(hasRem){
-            var rem = width/10;
-            docEl.style.fontSize = rem + "px";
-            remCalc.rem = rem;
-            var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
-            if(actualSize!== rem && actualSize>0 && Math.abs(actualSize-rem)>1){
-                var remScaled = rem*rem/actualSize;
-                docEl.style.fontSize = remScaled + "px";
-            }
-        }
-        if(hasZoom){
-            var style = document.getElementById('y_style');
-            if(!style){
-                style = document.createElement('style');
-                style.id = 'y_style';
-            }
-            style.innerHTML = '._z{zoom:'+ width/designWidth + '}';
-            document.getElementsByTagName('head')[0].appendChild(style);
-        }
-    }
-    function dbcRefresh(){
-        clearTimeout(tid);
-        tid = setTimeout(refresh,100);
-    }
-    win.addEventListener("resize",function(){
-        dbcRefresh()
-    },false);
-    win.addEventListener("pageshow",function(e){
-        if(e.persisted){
-            dbcRefresh()
-        }
-    },false);
-    refresh();
-    if(hasRem){
-        remCalc.refresh = refresh;
-        remCalc.rem2px = function(d){
-            var val = parseFloat(d)/this.rem;
-            if(typeof d==="string" && d.match(/px$/)){
-                val+="rem";
-            }
-            return val
-        };
-        win.remCalc = remCalc;
-    }
-})(window);
-//ºáÆÁ
-
 var musicStar = document.getElementById('musicStar');
 window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
     if (window.orientation === 180 || window.orientation === 0) {
-        //alert('ÊúÆÁ×´Ì¬£¡');
+        //alert('ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½');
         if(musicStar.played){
             musicStar.pause();
         }
     }
     if (window.orientation === 90 || window.orientation === -90 ){
-        //alert('ºáÆÁ×´Ì¬£¡');
+        //alert('æ¨ªå±çŠ¶æ€ï¼');
         var w = window.innerWidth;
         var h = window.innerHeight;
         $(function(){
@@ -181,7 +34,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
                 return;
             }
         });
-        //¶¯»­¿ªÊ¼²¥·ÅÒôÀÖ
+        //åŠ¨ç”»å¼€å§‹æ’­æ”¾éŸ³ä¹
         musicStar.load();
         musicStar.src="video/Echo.mp3";
         musicStar.play();
@@ -312,20 +165,20 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
                                     $('#prizeResult').show();
                                     if(obj.msg==1){
                                         $('#prizeResult h1').removeClass('notGet').addClass('get');
-                                        $('#prizeResult h1 i').html('¹§Ï²Äú£¬ÖĞÁËÒ»µÈ½±');
-                                        $('#prizeResult p').html('2¸öÔÂÒÔÄÚÎÒÃÇ»áÓëÄúµç»°¹µÍ¨£¬Çë±£³Öµç»°Í¨³©£»½±Æ·»áÔÚËæºó·¢·Å');
+                                        $('#prizeResult h1 i').html('æ­å–œæ‚¨ï¼Œä¸­äº†ä¸€ç­‰å¥–');
+                                        $('#prizeResult p').html('2ä¸ªæœˆä»¥å†…æˆ‘ä»¬ä¼šä¸æ‚¨ç”µè¯æ²Ÿé€šï¼Œè¯·ä¿æŒç”µè¯é€šç•…ï¼›å¥–å“ä¼šåœ¨éšåå‘æ”¾');
                                     }else if(obj.msg==2){
                                         $('#prizeResult h1').removeClass('notGet').addClass('get');
-                                        $('#prizeResult h1 i').html('¹§Ï²Äú£¬ÖĞÁË¶şµÈ½±');
-                                        $('#prizeResult p').html('2¸öÔÂÒÔÄÚÎÒÃÇ»áÓëÄúµç»°¹µÍ¨£¬Çë±£³Öµç»°Í¨³©£»½±Æ·»áÔÚËæºó·¢·Å');
+                                        $('#prizeResult h1 i').html('æ­å–œæ‚¨ï¼Œä¸­äº†äºŒç­‰å¥–');
+                                        $('#prizeResult p').html('2ä¸ªæœˆä»¥å†…æˆ‘ä»¬ä¼šä¸æ‚¨ç”µè¯æ²Ÿé€šï¼Œè¯·ä¿æŒç”µè¯é€šç•…ï¼›å¥–å“ä¼šåœ¨éšåå‘æ”¾');
                                     }else if(obj.msg==3){
                                         $('#prizeResult h1').removeClass('notGet').addClass('get');
-                                        $('#prizeResult h1 i').html('¹§Ï²Äú£¬ÖĞÁËÈıµÈ½±');
-                                        $('#prizeResult p').html('2¸öÔÂÒÔÄÚÎÒÃÇ»áÓëÄúµç»°¹µÍ¨£¬Çë±£³Öµç»°Í¨³©£»½±Æ·»áÔÚËæºó·¢·Å');
+                                        $('#prizeResult h1 i').html('æ­å–œæ‚¨ï¼Œä¸­äº†ä¸‰ç­‰å¥–');
+                                        $('#prizeResult p').html('2ä¸ªæœˆä»¥å†…æˆ‘ä»¬ä¼šä¸æ‚¨ç”µè¯æ²Ÿé€šï¼Œè¯·ä¿æŒç”µè¯é€šç•…ï¼›å¥–å“ä¼šåœ¨éšåå‘æ”¾');
                                     }else{
                                         $('#prizeResult h1').addClass('notGet').removeClass('get');
-                                        $('#prizeResult h1 i').html('ºÜ±§Ç¸£¬ÄúÃ»ÓĞÖĞ½±');
-                                        $('#prizeResult p').html('Ğ»Ğ»ÄúµÄ²ÎÓë');
+                                        $('#prizeResult h1 i').html('å¾ˆæŠ±æ­‰ï¼Œæ‚¨æ²¡æœ‰ä¸­å¥–');
+                                        $('#prizeResult p').html('è°¢è°¢æ‚¨çš„å‚ä¸');
                                     }
                                     $('#close-prize').click(function(){
                                         $('#userInfo').hide();
@@ -336,7 +189,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
                         })
 
                     }else{
-                        alert('ÇëÍêÉÆÄúµÄ±¨ÃûĞÅÏ¢');
+                        alert('è¯·å®Œå–„æ‚¨çš„æŠ¥åä¿¡æ¯');
                     }
                 })
             }
@@ -420,7 +273,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
                     }
                     stage.update();
                 }
-            };
+            }
             //Code to support hidpi screens and responsive scaling.
             function makeResponsive(isResp, respDim, isScale, scaleType) {
                 var lastW, lastH, lastS=1;
@@ -457,8 +310,6 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
             makeResponsive(true,'width',true,2);
             fnStartAnimation();
         }
-
-
     }
 
 }, false);
@@ -482,7 +333,7 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 //        return;
 //    }
 //});
-////¶¯»­¿ªÊ¼²¥·ÅÒôÀÖ
+////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //musicStar.load();
 //musicStar.src="video/Echo.mp3";
 //musicStar.play();
