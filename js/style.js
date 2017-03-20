@@ -48,9 +48,9 @@
             });
         }
     }, false);
-//$(function(){
-//  init();
-//});
+$(function(){
+  init();
+});
 //var w = window.innerWidth;
 //var h = window.innerHeight;
 //$("#portrait").css("display","none");
@@ -58,10 +58,13 @@
 //document.addEventListener("WeixinJSBridgeReady", function () {
 //  audioAutoPlay('musicStar');
 //}, false);
-//document.addEventListener('touchstart',function(){
-//  if(musicStar.paused){
-//      musicStar.play();
-//  }
+//$('body').bind("touchstart",function(e){
+//    if ( firstTouch ) {
+//        firstTouch = false;
+//        musicStar.play();
+//    }else{
+//        return;
+//    }
 //});
 //动画开始播放音乐
 //musicStar.load();

@@ -80,6 +80,7 @@ select {
   -webkit-box-sizing: border-box;
   width: 2.35382309rem;
   height: 100%;
+  background: transparent;
 }
 .userInfo-box .input-form-left {
   float: left;
@@ -88,12 +89,12 @@ select {
 .userInfo-box .input-form-right {
   float: right;
 }
-.userInfo-box .input-form-right select {
+.userInfo-box .input-form-right li select {
   float: right;
   -webkit-padding-left: 0.97451274rem;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  width: 2.98350825rem;
+  width: 2.99850075rem;
   height: 100%;
 }
 .userInfo-box #btn-userInfo {
