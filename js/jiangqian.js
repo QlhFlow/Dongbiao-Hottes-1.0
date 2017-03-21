@@ -81,7 +81,8 @@ var SaveInfo = {
         return total;
     },
     submit:function(){
-        $('#btn-userInfo').click(function(e){
+        var btnUserInfo = document.getElementById('btn-userInfo');
+        btnUserInfo.addEventListener('touchstart',function(e){
             e.preventDefault();
             if(SaveInfo.clickReg()){
                 SaveInfo.username = $('input[name="username"]').val();
@@ -138,7 +139,10 @@ var SaveInfo = {
             }else{
                 alert('请完善您的报名信息');
             }
-        })
+        });
+        //$('#btn-userInfo').touchstart(function(e){
+        //
+        //})
     }
 };
 //$(function(){

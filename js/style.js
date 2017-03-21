@@ -75,7 +75,7 @@ function landscape(){
     });
 
     $(function(){
-        
+
         var w = window.Utils.windowW();
         var h = window.Utils.windowH();
         init(false);
