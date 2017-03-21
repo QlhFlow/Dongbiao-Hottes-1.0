@@ -1,48 +1,49 @@
 
-var musicStar = document.getElementById('musicStar');
-var firstInit = true;
-function isAndroid(){
-    var u = navigator.userAgent;
-    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
-        return true;
-    }
-}
-function isWeiXin(){
-    var ua = window.navigator.userAgent.toLowerCase();
-    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-        return true;
-    }
-}
-if(isAndroid()&&isWeiXin()){
-    portrait();
-    var timer = setInterval(function(){
-        if(window.innerHeight<window.innerWidth){
-            landscape();
-            $('body').addClass('landscapeWeixin');
-            clearInterval(timer);
-        }
-    },100);
-}else{
-    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-        if (window.orientation === 180 || window.orientation === 0) {
-            portrait();
-
-        }
-        if (window.orientation === -90 || window.orientation === 90 ){
-            landscape();
-        }
-    }, false);
-}
+//var musicStar = document.getElementById('musicStar');
+//var firstInit = true;
+//function isAndroid(){
+//    var u = navigator.userAgent;
+//    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
+//        return true;
+//    }
+//}
+//function isWeiXin(){
+//    var ua = window.navigator.userAgent.toLowerCase();
+//    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+//        return true;
+//    }
+//}
+//if(isAndroid()&&isWeiXin()){
+//    portrait();
+//    var timer = setInterval(function(){
+//        if(window.innerHeight<window.innerWidth){
+//            landscape();
+//            $('body').addClass('landscapeWeixin');
+//            clearInterval(timer);
+//        }n
+//    },100);
+//}else{
+//    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+//        if (window.orientation === 180 || window.orientation === 0) {
+//            portrait();
+//
+//        }
+//        if (window.orientation === -90 || window.orientation === 90 ){
+//            landscape();
+//        }
+//    }, false);
+//}
 
 function landscape(){
-    var w = window.innerWidth;
-    var h = window.innerHeight;
+    var w = window.Utils.windowW;
+    var h = window.Utils.windowH;
+
     if($('body').hasClass('landscapeWeixin')){
         w = h;
         h = w;
     }
     $(function(){
-        init(firstInit);
+        init(true);
         $("#portrait").css("display","none");
         $('#landscape').css({'display':'block'});
         $("body").css({"width":w,"height":h});
@@ -102,8 +103,8 @@ function landscape(){
     });
     var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
     function init() {
-        var iw = window.innerWidth;
-        var ih = window.innerHeight;
+        var iw = window.Utils.windowW;
+        var ih = window.Utils.windowH;
         canvas = document.getElementById("canvas");
         canvas.width = iw;
         canvas.height = ih;
@@ -223,3 +224,121 @@ function portrait(){
 
 }
 //landscape();
+(function() {
+    "use strict";
+
+    function Utils() {
+    }
+
+    Utils.isWeiXin = function(){
+        return navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/);
+    }
+    Utils.isQQ = function(){
+        return navigator.userAgent.ua.match(/QQ\/([\d\.]+)/);
+    }
+    Utils.isQZone = function(){
+        return navigator.userAgent.ua.indexOf("Qzone/") !== -1;
+    }
+
+    Utils.isIos = function() {
+        return !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    }
+    Utils.isIPhone = function() {
+        return navigator.userAgent.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1;
+    }
+    Utils.isIpad = function() {
+        return navigator.userAgent.indexOf('iPad') > -1;
+    }
+    Utils.isAndroid = function() {
+        var u = navigator.userAgent;
+        return navigator.userAgent.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+    }
+    Utils.isMobile = function() {
+        // var u = navigator.userAgent;
+        return navigator.userAgent.match(/(iPhone|iPod|Android|ios|SymbianOS)/i) != null;
+    }
+
+    // ## 屏幕方向
+    Utils.isPortrait = function() {
+        if (!Utils.isMobile()) {
+            return true;
+        }
+        // 安卓版 微信里面 只用判断 width 和 height
+        if (Utils.isAndroid() && Utils.isWeiXin()) {
+            if (Utils.windowW() < Utils.windowH()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var orientation = window['orientation']
+        if (orientation) {
+            if (orientation == 180 || orientation == 0) {
+                return true;
+            }
+            if (orientation == 90 || orientation == -90) {
+                return false;
+            }
+        } else {
+            if (Utils.windowW() < Utils.windowH()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    // ## jquery 获取 window 的宽度
+    Utils.windowW = function() {
+        // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        return $(window).width();
+    }
+    // ## jquery 获取 window 的高度
+    Utils.windowH = function() {
+        return $(window).height();
+    }
+
+    window.Utils = Utils;
+}());
+
+window.addEventListener("resize", this.onResize, false);
+this.onResize();
+
+function  onResize() {
+    // if (window.orientation === 180 || window.orientation === 0) {
+    //     portrait();
+    // }
+    // if (window.orientation === 90 || window.orientation === -90 ){
+    //     landscape();
+    // }
+    if(Utils.isPortrait()){
+        portrait();
+    } else {
+        landscape();
+    }
+}
+
+window.addEventListener("onorientationchange" ,function() {
+        //if (window.orientation === 180 || window.orientation === 0) {
+        //    portrait();
+        //
+        //}
+        //if (window.orientation === -90 || window.orientation === 90 ){
+        //    landscape();
+        //}
+    if(Utils.isPortrait()){
+        portrait();
+    } else {
+        landscape();
+    }
+}, false);
+//window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+//    if (window.orientation === 180 || window.orientation === 0) {
+//        portrait();
+//
+//    }
+//    if (window.orientation === -90 || window.orientation === 90 ){
+//        landscape();
+//    }
+//}, false);
+
+

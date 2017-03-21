@@ -129,9 +129,9 @@ select {
   position: relative;
 }
 .action-rules #close-rules {
-  position: fixed;
-  top: 0.51724138rem;
-  right: 0.51724138rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .action-rules h1 {
   color: #061C57;
@@ -149,16 +149,14 @@ select {
 }
 .close {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  border-radius: 50%;
-  color: #333;
-  font-size: 0.26236882rem;
-  width: 0.26236882rem;
-  height: 0.26236882rem;
+  top: 5px;
+  right: 5px;
+  font-size: 0.33733133rem;
+  width: 0.37481259rem;
+  height: 0.37481259rem;
   text-align: center;
-  line-height: 0.26236882rem;
-  border: 1px solid #333;
+  line-height: 0.37481259rem;
+  color: #666;
 }
 .prize-result {
   display: none;

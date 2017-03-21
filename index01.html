@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>东风标致X008 SUV GO!</title>
+		<title>东风标致X008 SUV盛会 GO!</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,shrink-to-fit=no">
 	    <meta content="yes" name="apple-mobile-web-app-capable">
 	    <meta content="black" name="apple-mobile-web-app-status-bar-style">
@@ -108,7 +108,7 @@
 					</div>
 					<div id="actionRules" class="action-rules">
 						<span id="close-rules" class="close">×</span>
-						<h1><i>X008SUV盛会</i></h1>
+						<!--<h1><i>X008SUV盛会</i></h1>-->
 						<h2>活动说明:</h2>
 						<h4>
 							2017年3月27日至2017年4月21日，东风标致“0”息“0”税“0”元保养回馈活动倾情开启，活动期间，凡是预约试驾成功的用户，即有机会赢取丰厚大奖！<br/>
@@ -148,4 +148,16 @@
 	<script src="js/province.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/jiangqian.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/style.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		function audioAutoPlay(id){
+			var audio = document.getElementById(id),
+					play = function(){
+						audio.play();
+						document.removeEventListener("touchstart",play, false);
+					};
+			audio.play();
+			document.addEventListener("touchstart",play, false);
+		}
+		var isAppInside=/micromessenger/i.test(navigator.userAgent.toLowerCase())||/yixin/i.test(navigator.userAgent.toLowerCase());
+	</script>
 </html>
