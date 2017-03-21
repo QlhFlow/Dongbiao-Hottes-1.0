@@ -50,7 +50,7 @@ function landscape(){
     });
     $(function(){
 
-        var w = window.Utils.windowW();
+
         var h = window.Utils.windowH();
         init();
         $("#portrait").css("display","none");
