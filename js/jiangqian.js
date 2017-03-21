@@ -84,14 +84,14 @@ var SaveInfo = {
         var btnUserInfo = document.getElementById('btn-userInfo');
         btnUserInfo.addEventListener('touchstart',function(e){
             e.preventDefault();
-            if(SaveInfo.clickReg()){
+            var key = $("input[name='key']").val();
+            if(SaveInfo.clickReg()&&key){
                 SaveInfo.username = $('input[name="username"]').val();
                 SaveInfo.phone = $('input[name="phone"]').val();
                 SaveInfo.province = $('select[name="ddlProvince"] option:selected').val();
                 SaveInfo.city = $('select[name="ddlCity"] option:selected').val();
                 SaveInfo.agency = $('select[name="agency"] option:selected').val();
                 SaveInfo.cartype = $('select[name="cartype"] option:selected').val();
-                var key = $("input[name='key']").val();
                 var data = {
                     username:SaveInfo.username,
                     numberphone:SaveInfo.phone,
@@ -103,39 +103,38 @@ var SaveInfo = {
                     url:'http://fld.xingyuanauto.com/public/index.php/port/Userdblotter/UserLotter',
                     type:'post',
                     data:data,
-                    success:function(obj){
+                    success:function(obj) {
                         console.log(obj);
                         obj = JSON.parse(obj);
-                        if(obj.start==2004){
+                        if (obj.start == 2004) {
                             $('#userInfo-box').hide();
                             $('#prizeResult').show();
-                            if(obj.msg==1){
+                            if (obj.msg == 1) {
                                 $('#prizeResult h1').removeClass('notGet').addClass('get');
                                 $('#prizeResult h1 i').html('恭喜您，中了一等奖');
                                 $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
-                            }else if(obj.msg==2){
+                            } else if (obj.msg == 2) {
                                 $('#prizeResult h1').removeClass('notGet').addClass('get');
                                 $('#prizeResult h1 i').html('恭喜您，中了二等奖');
                                 $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
-                            }else if(obj.msg==3){
+                            } else if (obj.msg == 3) {
                                 $('#prizeResult h1').removeClass('notGet').addClass('get');
                                 $('#prizeResult h1 i').html('恭喜您，中了三等奖');
                                 $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
-                            }else{
+                            } else {
                                 $('#prizeResult h1').addClass('notGet').removeClass('get');
                                 $('#prizeResult h1 i').html('很抱歉，您没有中奖');
                                 $('#prizeResult p').html('谢谢您的参与');
                             }
-                            $('#close-prize').click(function(){
+                            $('#close-prize').click(function () {
                                 $('#userInfo').hide();
                                 $('#prizeResult').hide();
                             });
-                        }else {
+                        } else {
                             alert(obj.msg);
                         }
                     }
                 })
-
             }else{
                 alert('请完善您的报名信息');
             }
