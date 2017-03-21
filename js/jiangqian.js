@@ -78,7 +78,6 @@ var SaveInfo = {
         agencyReg = selectReg('agency');
         cartypeReg = selectReg('cartype');
         var total = usernameReg&&phoneReg&&provinceReg&&cityReg&&agencyReg&&cartypeReg;
-        console.log(usernameReg,phoneReg,provinceReg,cityReg,agencyReg,cartypeReg);
         return total;
     },
     submit:function(){
@@ -99,7 +98,6 @@ var SaveInfo = {
                     model:SaveInfo.cartype,
                     key:key
                 };
-                console.log(data);
                 $.ajax({
                     url:'http://fld.xingyuanauto.com/public/index.php/port/Userdblotter/UserLotter',
                     type:'post',
@@ -107,8 +105,7 @@ var SaveInfo = {
                     success:function(obj){
                         console.log(obj);
                         obj = JSON.parse(obj);
-                        if(obj.start=='2004'){
-                            console.log(777);
+                        if(obj.start==2004){
                             $('#userInfo-box').hide();
                             $('#prizeResult').show();
                             if(obj.msg==1){
@@ -132,6 +129,8 @@ var SaveInfo = {
                                 $('#userInfo').hide();
                                 $('#prizeResult').hide();
                             });
+                        }else {
+                            alert(obj.msg);
                         }
                     }
                 })
