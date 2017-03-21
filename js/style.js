@@ -299,7 +299,7 @@ function portrait(){
                 return false;
             }
         }
-    }
+    };
     // ## jquery 获取 window 的宽度
     Utils.windowW = function() {
         // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;

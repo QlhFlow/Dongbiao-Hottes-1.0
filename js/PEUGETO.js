@@ -1212,13 +1212,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,27.6,30.8);
 
 	// 图层 1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#32FFEB").s().p("ApLDzIEHgdIh0HCIkHAcgAllIAICmgSIBLmYIneA1IAxhCIBdozIOHhkID9hlIhqDeIskBZIg+FaICxgTIAykSIE5gjIgyESIG1gvIh/CVIlRAmIhkImImeAugAE+COIEBgdIhKG+IkEAcg");
-	this.shape.setTransform(78,64.7);
+	this.shape.graphics.f("#32FFEB").s().p("AkrCcIEwggIlWH3Ik5AggAAuBFIpfBAIAPiHIHQgxIAajuIi0ATIhCC5IkIAbICxnkIEIgcIg4CaICNgNIAWjJIELgdIgWDJIGchUIgUC2ImXAqIgbDvIHSgxIgPCIIk+AhIgrGAIFcgkIhGCRIozA7g");
+	this.shape.setTransform(65.5,69.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(7.7,-4.5,140.8,138.4);
+p.nominalBounds = new cjs.Rectangle(0.5,3.6,130.2,131.9);
 
 
 (lib.元件3yurt_1 = function(mode,startPosition,loop) {
@@ -1827,7 +1827,7 @@ p.nominalBounds = new cjs.Rectangle(-9.6,12.3,291.2,558.5);
 	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(15).to({startPosition:0},0).to({regY:66.9,scaleX:1.08,scaleY:1.17,skewY:-7.3,x:-15,y:75.2},4,cjs.Ease.get(1)).to({regY:67,scaleX:1.03,scaleY:1,skewY:12.8,x:-11.6,y:78.3},4,cjs.Ease.get(1)).to({scaleX:1,skewY:0},4,cjs.Ease.get(1)).wait(7).to({startPosition:0},0).wait(66));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-78.7,3.2,540.8,142);
+p.nominalBounds = new cjs.Rectangle(-85.9,3.2,548,143.6);
 
 
 (lib.元件1yurt_1 = function(mode,startPosition,loop) {
@@ -2037,7 +2037,7 @@ p.nominalBounds = new cjs.Rectangle(-60.5,-7.8,181.8,63.2);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(100));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-62.2,7.7,540.8,142);
+p.nominalBounds = new cjs.Rectangle(-69.4,7.7,548,143.6);
 
 
 (lib.元件37_1 = function(mode,startPosition,loop) {
@@ -2265,7 +2265,7 @@ p.nominalBounds = new cjs.Rectangle(-59,-12.5,150.3,49.8);
 	this.timeline.addTween(cjs.Tween.get(this.button_4).wait(30).to({_off:false},0).to({x:389.3,y:320.7},4,cjs.Ease.get(1)).to({regX:54.5,rotation:-4.6,x:403.7,y:318.7},3,cjs.Ease.get(1)).to({scaleX:1.43,scaleY:1.43,rotation:-4.5,x:415.4,y:317},6).to({regX:54.4,scaleX:1.43,scaleY:1.43,rotation:-4.7,x:417.3,y:316.7},1).wait(102));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(34.8,-3.3,540.8,142);
+p.nominalBounds = new cjs.Rectangle(27.6,-3.3,547.9,143.6);
 
 
 (lib.元件1_4 = function(mode,startPosition,loop) {
