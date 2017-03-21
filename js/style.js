@@ -1,50 +1,4 @@
-
-//var musicStar = document.getElementById('musicStar');
-//var firstInit = true;
-//function isAndroid(){
-//    var u = navigator.userAgent;
-//    if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
-//        return true;
-//    }
-//}
-//function isWeiXin(){
-//    var ua = window.navigator.userAgent.toLowerCase();
-//    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-//        return true;
-//    }
-//}
-//if(isAndroid()&&isWeiXin()){
-//    portrait();
-//    var timer = setInterval(function(){
-//        if(window.innerHeight<window.innerWidth){
-//            landscape();
-//            $('body').addClass('landscapeWeixin');
-//            clearInterval(timer);
-//        }n
-//    },100);
-//}else{
-//    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-//        if (window.orientation === 180 || window.orientation === 0) {
-//            portrait();
-//
-//        }
-//        if (window.orientation === -90 || window.orientation === 90 ){
-//            landscape();
-//        }
-//    }, false);
-//}
-
 function landscape(){
-
-
-    //var w = window.innerWidth;
-    //var h = window.innerHeight;
-    //if($('body').hasClass('landscapeWeixin')){
-    //    w = h;
-    //    h = w;
-    //}
-
-    //firstInit = false;
     document.addEventListener("WeixinJSBridgeReady", function () {
         audioAutoPlay('musicStar');
     }, false);
@@ -73,51 +27,38 @@ function landscape(){
         $(".open").css("display","block");
         $('.btn-music').addClass('open-music');
     });
+    $('#close-userInfo').click(function(){
+        $('#userInfo').hide();
+    });
+    $('#gotoInfo').click(function(e){
+        e.preventDefault();
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        $('#userInfo').css({'width':w,'height':h}).show();
+        $('#userInfo-box').show();
+        $('#rule-icon').click(function(){
+            $('#userInfo-box').hide();
+            $('#actionRules').show();
+        });
+        $('#close-rules').click(function(){
+            $('#userInfo-box').show();
+            $('#actionRules').hide();
+        });
+        ProvinceData.init('ddlProvince', 'ddlCity','agency');
+        SaveInfo.init();
 
+    });
     $(function(){
 
         var w = window.Utils.windowW();
         var h = window.Utils.windowH();
-        init(false);
+        init();
         $("#portrait").css("display","none");
         $('#landscape').css({'display':'block'});
         $("body").css({"width":w,"height":h});
-
-        ProvinceData.init('ddlProvince', 'ddlCity','agency');
-        SaveInfo.init();
-        $('#close-userInfo').click(function(){
-            $('#userInfo').hide();
-        });
-        $('#gotoInfo').click(function(e){
-            e.preventDefault();
-            var w = window.innerWidth;
-            var h = window.innerHeight;
-            $('#userInfo').css({'width':w,'height':h}).show();
-            $('#userInfo-box').show();
-            $('#rule-icon').click(function(){
-                $('#userInfo-box').hide();
-                $('#actionRules').show();
-            });
-            $('#close-rules').click(function(){
-                $('#userInfo-box').show();
-                $('#actionRules').hide();
-            });
-
-        });
     });
     var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
     function init() {
-        //var iw = window.Utils.windowW;
-        //var ih = window.Utils.windowH;
-        //var iw = window.innerWidth;
-        //var ih = window.innerHeight;
-        //if(isIOS){
-        //    var iw = window.innerWidth;
-        //    var ih = window.innerHeight;
-        //}else{
-        //    var iw = window.Utils.windowW();
-        //    var ih = window.Utils.windowH();
-        //}
         var iw = window.Utils.windowW();
         var ih = window.Utils.windowH();
         canvas = document.getElementById("canvas");
@@ -300,53 +241,32 @@ function portrait(){
     };
     window.Utils = Utils;
 }());
-
-
-
-onResize();
+$(function(){
+    onResize();
+});
+var firstMove = true;
 function  onResize() {
-        if(Utils.isPortrait()){
-            portrait();
-        } else {
+    if(Utils.isPortrait()){
+        portrait();
+    } else {
+        if(!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+            setTimeout(function(){
+                landscape();
+            },100);
+        }else{
             landscape();
-
         }
+        firstMove = false;
+    }
 }
-if (window.Utils.isIos()) {
-    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", onResize, false);
-}else{
-    window.addEventListener( "resize", onResize, false);
+if(firstMove){
+    if (!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", onResize, false);
+    }else{
+        window.addEventListener( "resize", onResize, false);
+    }
 }
-//window.addEventListener("orientationchange" , onResize, false);
 
-//window.addEventListener("orientationchange" ,function() {
-        //if (window.orientation === 180 || window.orientation === 0) {
-        //    portrait();
-        //}
-        //if (window.orientation === -90 || window.orientation === 90 ){
-        //    landscape();
-        //}
-    //if(Utils.isPortrait()){
-    //    portrait();
-    //} else {
-    //    landscape();
-    //    alert(4444);
-    //}
-//}, false);
-//window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-//    //if (window.orientation === 180 || window.orientation === 0) {
-//    //    portrait();
-//    //
-//    //}
-//    //if (window.orientation === -90 || window.orientation === 90 ){
-//    //    landscape();
-//    //}
-//    if(Utils.isPortrait()){
-//        portrait();
-//    } else {
-//        landscape();
-//
-//    }
-//}, false);
+
 
 
