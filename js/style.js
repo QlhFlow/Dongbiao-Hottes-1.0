@@ -43,26 +43,7 @@ function landscape(){
     //    w = h;
     //    h = w;
     //}
-    $(function(){
-        //init(true);
 
-        //if(isIOS){
-        //    var w = window.innerWidth;
-        //    var h = window.innerHeight;
-        //    init(true);
-        //    alert(888);
-        //}else{
-        //    var w = window.Utils.windowW();
-        //    var h = window.Utils.windowH();
-        //    init(false);
-        //}
-        var w = window.Utils.windowW();
-        var h = window.Utils.windowH();
-        init(false);
-        $("#portrait").css("display","none");
-        $('#landscape').css({'display':'block'});
-        $("body").css({"width":w,"height":h});
-    });
     //firstInit = false;
     document.addEventListener("WeixinJSBridgeReady", function () {
         audioAutoPlay('musicStar');
@@ -94,6 +75,14 @@ function landscape(){
     });
 
     $(function(){
+        
+        var w = window.Utils.windowW();
+        var h = window.Utils.windowH();
+        init(false);
+        $("#portrait").css("display","none");
+        $('#landscape').css({'display':'block'});
+        $("body").css({"width":w,"height":h});
+
         ProvinceData.init('ddlProvince', 'ddlCity','agency');
         SaveInfo.init();
         $('#close-userInfo').click(function(){
