@@ -32,25 +32,21 @@ function landscape(){
     });
     $('#gotoInfo').click(function(e){
         e.preventDefault();
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        $('#userInfo').css({'width':w,'height':h}).show();
-        $('#userInfo-box').show();
+        $('#userInfo').show();
         $('#rule-icon').click(function(){
-            $('#userInfo-box').hide();
             $('#actionRules').show();
+            $('#userInfo').hide();
         });
-        $('#close-rules').click(function(){
-            $('#userInfo-box').show();
+        $('#actionRules').unbind('click').bind('click',function(){
             $('#actionRules').hide();
+            $("#userInfo").show();
         });
         ProvinceData.init('ddlProvince', 'ddlCity','agency');
         SaveInfo.init();
 
     });
     $(function(){
-
-
+        var w =window.Utils.windowW();
         var h = window.Utils.windowH();
         init();
         $("#portrait").css("display","none");
@@ -244,28 +240,29 @@ function portrait(){
 $(function(){
     onResize();
 });
-var firstMove = true;
+
 function  onResize() {
-    if(Utils.isPortrait()){
-        portrait();
-    } else {
-        if(!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
-            setTimeout(function(){
+        if(Utils.isPortrait()){
+            portrait();
+        } else {
+            if(!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+                setTimeout(function(){
+                    landscape();
+                },100);
+            }else{
                 landscape();
-            },100);
-        }else{
-            landscape();
+            }
+
         }
-        firstMove = false;
-    }
+
 }
-if(firstMove){
+
     if (!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
         window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", onResize, false);
     }else{
         window.addEventListener( "resize", onResize, false);
     }
-}
+
 
 
 

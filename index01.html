@@ -41,48 +41,48 @@
 				<h3>横屏互动</h3>			
 			</div>
 		    <!--横屏体验内容页面-->
-		    <div id="landscape" style="width:100%;height:100%;position: absolute;top:0;left:0">
+		    <div id="landscape" style="width:100%;height:100%;position: absolute;top:0;left:0; overflow:hidden;">
 
 				<!--动画部分-->
-				<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1334px; height:646px">
+				<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); ">
 					<canvas id="canvas" width="1334" height="646" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-					<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1334px; height:646px; position: absolute; left: 0px; top: 0px; display: block;">
+					<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; position: absolute; left: 0px; top: 0px; display: block;">
 					</div>
 				</div>
 				<div id="ending" class="ending" style="display: none;">
 					<img src="img/ending/go02.jpg" class="ending-pic1"/>
 					<img src="img/ending/for02.png" class="ending-pic2"/>
 					<img src="img/ending/prize02.png" class="ending-pic3"/>
-					<div class="sign-up" id="gotoInfo">
-						<span >预约试驾</span>
-					</div>
+					<!--<div class="sign-up" id="gotoInfo">-->
+						<span class="btn01" id="gotoInfo">预约试驾</span>
+						<span class="btn02" id="gotoInfo02">购车礼遇</span>
+					<!--</div>-->
 					<div id="fadeOut" ></div>
 				</div>
-				<div id="userInfo">
+				<div id="userInfo" class="userInfo">
 					<div id="userInfo-box" class="userInfo-box" >
 						<span id="close-userInfo" class="close">×</span>
 						<p class="userInfo-title">报名注册</p>
 						<p class="userInfo-tip">填写完整个人信息，即有机会赢取行圆汽车提供的精美礼品。</p>
 						<ul class="input-form-left input-form">
 							<li>
-								<span>姓名</span>
-								<input type="text" id="username" name="username" placeholder="姓名"  maxlength=10 minlength=2 required="required" />
+								<span class="firstspan">姓名</span>
+								<input type="text" id="username" name="username" placeholder="姓名"  maxlength=10 minlength=2 required="required" style=" -webkit-user-modify: read-write-plaintext-only;"/>
 							</li>
 							<li>
-								<span>手机</span>
+								<span class="firstspan">手机</span>
 								<input type="tel" id="phone" name="phone" placeholder="手机" required="required" />
 							</li>
 							<li>
 								<span>省份</span>
-								<select id="ddlProvince" name="ddlProvince" >
-									<option value="-1">省份</option>
+								<select id="ddlProvince" name="ddlProvince" title="省/00" >
+									<option value="-1">省/直辖市</option>
 								</select>
 							</li>
 							<li>
 								<span>城市</span>
-								<select id="ddlCity" name="ddlCity"  >
+								<select id="ddlCity" name="ddlCity">
 									<option value="-1">城市</option>
-
 								</select>
 							</li>
 						</ul>
@@ -103,11 +103,14 @@
 								</select>
 							</li>
 						</ul>
-						<div id="btn-userInfo">提&nbsp;&nbsp;&nbsp;交</div>
+						<div id="btn-userInfo" class="btn-userInfo">提&nbsp;&nbsp;&nbsp;交</div>
 						<a id="rule-icon" ><i>活动详情</i></a>
 					</div>
-					<div id="actionRules" class="action-rules">
-						<span id="close-rules" class="close">×</span>
+
+				</div>
+				<div class="userInfo" id="actionRules">
+					<div  class="action-rules">
+						<span class="close">×</span>
 						<!--<h1><i>X008SUV盛会</i></h1>-->
 						<h2>活动说明:</h2>
 						<h4>
@@ -124,8 +127,9 @@
 							4、若活动结束后的2个月内，无法联系到您，且则视为您主动放弃获奖资格，奖品亦不予保留。<br/>
 						</h4>
 					</div>
-					<div id="prizeResult"  class="prize-result">
-						<span id="close-prize" class="close">×</span>
+				</div>
+				<div class="userInfo" id="prizeResult">
+					<div class="prize-result">
 						<div class="prize-result-info">
 							<h1 class="notGet"><i>很抱歉，您没有中奖</i></h1>
 							<p>感谢您参与东风标致X008 SUV盛会活动！</p>
@@ -136,7 +140,6 @@
 					<img src="img/musicopen.png" class="open music" style="display: block;"/>
 					<img src="img/musicclose.png" class="clock music" style="display: none;"/>
 				</div>
-
 			</div>
 		    <!--音乐-->
 		    <audio src="video/Echo.mp3" id="musicStar"  loop="loop" preload="load" autoplay="autoplay"></audio>

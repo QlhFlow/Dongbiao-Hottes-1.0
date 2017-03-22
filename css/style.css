@@ -299,7 +299,6 @@ body {
   #landscape {
     display: block;
     position: relative;
-    overflow: hidden;
   }
   .ending {
     width: 100%;
@@ -338,23 +337,29 @@ body {
     top: 1.64917541rem;
     left: 5.26986507rem;
   }
-  .sign-up {
-    width: 4.12293853rem;
-    height: 0.47976012rem;
-    line-height: 0.47976012rem;
-    background: #2b69b6;
-    -webkit-transform: skew(-10deg);
-    transform: skew(-10deg);
+  .ending span {
     text-align: center;
-    vertical-align: middle;
-    position: absolute;
-    top: 3.89055472rem;
-    left: 5.10494753rem;
-  }
-  .sign-up span {
+    line-height: 0.48725637rem;
     font-family: '黑体';
     font-size: 0.19490255rem;
     color: #FFFFFF;
+    -webkit-transform: skew(-10deg);
+    transform: skew(-10deg);
+    background: #2b69b6;
+  }
+  .btn01 {
+    width: 2.69865067rem;
+    height: 0.48725637rem;
+    position: absolute;
+    top: 3.74812594rem;
+    left: 5.13493253rem;
+  }
+  .btn02 {
+    width: 1.34182909rem;
+    height: 0.48725637rem;
+    position: absolute;
+    top: 3.74812594rem;
+    right: 0.80209895rem;
   }
   .btn-music {
     width: 0.39730135rem;

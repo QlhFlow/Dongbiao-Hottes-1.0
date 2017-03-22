@@ -6,31 +6,40 @@ select {
   border: 0;
   outline: none;
 }
-#userInfo {
+.userInfo {
   display: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: 0.47226387rem;
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
 }
 .userInfo-box {
-  display: none;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  -webkit-box-sizing: border-box;
+  width: 8.99550225rem;
+  height: 3.89805097rem;
   background: #fff;
   padding: 0.27736132rem 0.64467766rem;
-  position: relative;
+  -webkit-padding: 0.27736132rem 0.64467766rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: solid #E9E9E9 1px;
+  -webkit-box-shadow: 0 0 7px #ccc;
+  -moz-box-shadow: 0 0 7px #ccc;
+  box-shadow: 0 0 7px #ccc;
+  border-radius: 10px;
 }
 .userInfo-box .userInfo-title {
   width: 0.86956522rem;
   color: #061C57;
   font-size: 0.20989505rem;
-  padding-bottom: 0.07496252rem;
+  padding-bottom: 0.03748126rem;
   margin-bottom: 0.07496252rem;
   border: 1px solid transparent;
   border-bottom: 1px solid #A0A0A0;
@@ -44,16 +53,22 @@ select {
   width: 50%;
 }
 .userInfo-box .input-form li.red {
-  border: 1px solid #f00;
+  border: 1px solid #c01c1c;
+  -webkit-box-shadow: 0 0 2px #c01c1c;
+  -moz-box-shadow: 0 0 2px #c01c1c;
+  box-shadow: 0 0 2px #c01c1c;
 }
 .userInfo-box .input-form li {
-  border: 1px solid #464646;
+  border: 1px solid #A0A0A0;
   border-radius: 3px;
   width: 100%;
   height: 0.35982009rem;
   margin-bottom: 0.22488756rem;
   font-size: 0.16491754rem;
   position: relative;
+}
+.userInfo-box .input-form li span.firstspan {
+  border-radius: 1px 0 0 1px;
 }
 .userInfo-box .input-form li span {
   color: #fff;
@@ -65,7 +80,7 @@ select {
   line-height: 0.35982009rem;
   text-align: center;
   background: #5A87C3;
-  border-radius: 3px 0 0 3px;
+  border-radius: 2px 0 0 2px;
 }
 .userInfo-box .input-form li input {
   padding-left: 0.97451274rem;
@@ -73,12 +88,15 @@ select {
   width: 100%;
   height: 100%;
 }
+.userInfo-box .input-form li select:nth-child(1) {
+  color: #a7a7a7;
+}
 .userInfo-box .input-form li select {
   float: right;
   -webkit-padding-left: 0.97451274rem;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  width: 2.35382309rem;
+  width: 2.28635682rem;
   height: 100%;
   background: transparent;
 }
@@ -94,10 +112,11 @@ select {
   -webkit-padding-left: 0.97451274rem;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  width: 2.99850075rem;
+  width: 2.92353823rem;
   height: 100%;
 }
-.userInfo-box #btn-userInfo {
+.userInfo-box .btn-userInfo {
+  box-sizing: border-box;
   float: right;
   color: #fff;
   font-size: 0.19490255rem;
@@ -107,9 +126,9 @@ select {
   height: 0.44977511rem;
   line-height: 0.44977511rem;
   background: #3569B4;
-  -webkit-clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
-  clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
-  margin-bottom: 5px;
+  border-radius: 3px;
+  border: solid #3569B4 1px;
+  margin-bottom: 8px;
 }
 .userInfo-box a {
   font-size: 0.14992504rem;
@@ -119,14 +138,22 @@ select {
   text-decoration: underline;
 }
 .action-rules {
-  display: none;
   padding: 0.26236882rem 0.33733133rem;
   box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 8.99550225rem;
+  height: 3.89805097rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   background: #fff;
   overflow: hidden;
-  position: relative;
+  border: solid #E9E9E9 1px;
+  -webkit-box-shadow: 0 0 7px #ccc;
+  -moz-box-shadow: 0 0 7px #ccc;
+  box-shadow: 0 0 7px #ccc;
+  border-radius: 10px;
 }
 .action-rules #close-rules {
   position: absolute;
@@ -149,17 +176,16 @@ select {
 }
 .close {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 3px;
+  right: 3px;
   font-size: 0.33733133rem;
-  width: 0.37481259rem;
-  height: 0.37481259rem;
+  width: 0.67466267rem;
+  height: 0.44977511rem;
   text-align: center;
-  line-height: 0.37481259rem;
+  line-height: 0.44977511rem;
   color: #666;
 }
 .prize-result {
-  display: none;
   box-sizing: border-box;
   width: 4.27286357rem;
   height: 2.54872564rem;
@@ -169,6 +195,11 @@ select {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   background: #fff;
+  border: solid #E9E9E9 1px;
+  -webkit-box-shadow: 0 0 7px #ccc;
+  -moz-box-shadow: 0 0 7px #ccc;
+  box-shadow: 0 0 7px #ccc;
+  border-radius: 10px;
 }
 .prize-result .prize-result-info {
   box-sizing: border-box;

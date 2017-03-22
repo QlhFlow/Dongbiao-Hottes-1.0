@@ -101,52 +101,56 @@ var SaveInfo = {
                     key:key
                 };
                 $.ajax({
-                    url:'http://fld.xingyuanauto.com/public/index.php/port/Userdblotter/UserLotter',
+                    url:'http://h5.qlh520.top/media/public/index.php/port/Userreg/Comreg',
                     type:'post',
-                    data:data,
-                    success:function(obj) {
-                        console.log(obj);
-                        obj = JSON.parse(obj);
-                        if (obj.start == 2004) {
-                            $('#userInfo-box').hide();
-                            $('#prizeResult').show();
-                            if (obj.msg == 1) {
-                                $('#prizeResult h1').removeClass('notGet').addClass('get');
-                                $('#prizeResult h1 i').html('恭喜您，中了一等奖');
-                                $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
-                            } else if (obj.msg == 2) {
-                                $('#prizeResult h1').removeClass('notGet').addClass('get');
-                                $('#prizeResult h1 i').html('恭喜您，中了二等奖');
-                                $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
-                            } else if (obj.msg == 3) {
-                                $('#prizeResult h1').removeClass('notGet').addClass('get');
-                                $('#prizeResult h1 i').html('恭喜您，中了三等奖');
-                                $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
-                            } else {
-                                $('#prizeResult h1').addClass('notGet').removeClass('get');
-                                $('#prizeResult h1 i').html('感谢您参与东风标致X008 SUV盛会活动！');
-                                $('#prizeResult p').html('');
-                            }
-                            $('#close-prize').click(function () {
-                                $('#userInfo').hide();
-                                $('#prizeResult').hide();
-                            });
-                        } else {
-                            alert(obj.msg);
+                    data:{key:key,numberphone:SaveInfo.phone},
+                    success:function(result) {
+                        var result = JSON.parse(result);
+                        if(result.start==2008){
+                            $.ajax({
+                                url:'http://fld.xingyuanauto.com/public/index.php/port/Userdblotter/UserLotter',
+                                type:'post',
+                                data:data,
+                                success:function(obj) {
+                                    var obj = JSON.parse(obj);
+                                    if (obj.start == 2004) {
+                                        $('#userInfo').hide();
+                                        $('#prizeResult').show();
+                                        if (obj.msg == 1) {
+                                            $('#prizeResult h1').removeClass('notGet').addClass('get');
+                                            $('#prizeResult h1 i').html('恭喜您，中了一等奖');
+                                            $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
+                                        } else if (obj.msg == 2) {
+                                            $('#prizeResult h1').removeClass('notGet').addClass('get');
+                                            $('#prizeResult h1 i').html('恭喜您，中了二等奖');
+                                            $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
+                                        } else if (obj.msg == 3) {
+                                            $('#prizeResult h1').removeClass('notGet').addClass('get');
+                                            $('#prizeResult h1 i').html('恭喜您，中了三等奖');
+                                            $('#prizeResult p').html('2个月以内我们会与您电话沟通，请保持电话通畅；奖品会在随后发放');
+                                        } else {
+                                            $('#prizeResult h1').addClass('notGet').removeClass('get');
+                                            $('#prizeResult h1 i').html('感谢您参与东风标致X008 SUV盛会活动！');
+                                            $('#prizeResult p').html('');
+                                        }
+                                        $('#prizeResult').unbind('click').bind('click',function () {
+                                            $('#prizeResult').fadeOut();
+
+                                        });
+                                    }else {
+                                        alert(obj.msg);
+                                    }
+                                }
+                            })
+                        }else{
+                            alert(result.msg);
                         }
                     }
-                })
+                });
+
             }else{
                 alert('请完善您的报名信息');
             }
         });
-        btnUserInfo.removeEventListener('click');
-
-        btnUserInfo.addEventListener('click',function(e){
-
-        });
-        //$('#btn-userInfo').touchstart(function(e){
-        //
-        //})
     }
 };
