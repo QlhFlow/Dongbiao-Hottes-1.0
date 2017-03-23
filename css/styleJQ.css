@@ -231,3 +231,51 @@ select {
 .prize-result .prize-result-info .notGet {
   color: #2B69B6;
 }
+#buycar {
+  display: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 8.99550225rem;
+  height: 3.89805097rem;
+  background: #fff;
+  padding: 0.27736132rem 0.64467766rem;
+  -webkit-padding: 0.27736132rem 0.64467766rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: solid #E9E9E9 1px;
+  -webkit-box-shadow: 0 0 7px #ccc;
+  -moz-box-shadow: 0 0 7px #ccc;
+  box-shadow: 0 0 7px #ccc;
+  border-radius: 10px;
+}
+.closecar {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 0.33733133rem;
+  width: 0.67466267rem;
+  height: 0.44977511rem;
+  text-align: center;
+  line-height: 0.44977511rem;
+  color: #666;
+}
+.carpic {
+  width: 8.005997rem;
+  height: 3.08095952rem;
+  position: absolute;
+  top: 0.53973013rem;
+  left: 0.54722639rem;
+}
+.usercar {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

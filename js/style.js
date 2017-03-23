@@ -45,6 +45,16 @@ function landscape(){
         SaveInfo.init();
 
     });
+    $("#gotoInfo02").click(function(e){
+        e.preventDefault();
+        $('.usercar').css("display","block");
+        $('#buycar').css("display","block");
+    });
+    $(".closecar").click(function(e){
+        e.preventDefault();
+        $('.usercar').css("display","none");
+       $('#buycar').css("display","none");
+    })
     $(function(){
         var w =window.Utils.windowW();
         var h = window.Utils.windowH();
