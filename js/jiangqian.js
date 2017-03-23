@@ -101,7 +101,7 @@ var SaveInfo = {
                     key:key
                 };
                 $.ajax({
-                    url:'http:// xy.qichedaquan.com/medias/public/index.php/port/Userreg/Comreg',
+                    url:'http://xy.qichedaquan.com/medias/public/index.php/port/Userreg/Comreg',
                     type:'post',
                     data:{key:key,numberphone:SaveInfo.phone},
                     success:function(result) {
