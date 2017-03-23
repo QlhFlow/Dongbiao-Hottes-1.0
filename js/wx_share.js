@@ -8,9 +8,9 @@
           return alert(msg.message);
         }
 			var title ='玩出快乐3招新境界,GO!'; // 分享标题
-            var link ='http://flow.xingyuanauto.com/Dongbiao/index.php';
+            var link ='http://h5.xingyuanauto.com/Dongbiao/index.php';
             var desc = '东风标致X008 SUV盛会 GO'; // 分享描述
-            var imgUrl = 'http://flow.xingyuanauto.com/Dongbiao/img/111.png';
+            var imgUrl = 'http://h5.xingyuanauto.com/Dongbiao/img/111.png';
 		
 		    var wx_appId = msg.appId; 
 			var wx_timestamp = msg.timestamp;
