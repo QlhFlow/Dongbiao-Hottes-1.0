@@ -101,14 +101,14 @@ var SaveInfo = {
                     key:key
                 };
                 $.ajax({
-                    url:'http://xy.qichedaquan.com/medias/public/index.php/port/Userreg/Comreg',
+                    url:'https://xy.qichedaquan.com/medias/public/index.php/port/Userreg/CKphoneHave',
                     type:'post',
                     data:{key:key,numberphone:SaveInfo.phone},
                     success:function(result) {
                         var result = JSON.parse(result);
                         if(result.start==2008){
                             $.ajax({
-                                url:'http://fld.xingyuanauto.com/public/index.php/port/Userdblotter/UserLotter',
+                                url:'https://xy.qichedaquan.com/Baowo/Flow/public/index.php/port/Userdblotter/UserLotter',
                                 type:'post',
                                 data:data,
                                 success:function(obj) {

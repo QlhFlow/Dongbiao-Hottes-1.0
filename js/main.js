@@ -143,6 +143,7 @@ funImgLoading("page-box","img-loading-txt",function(){
         win.remCalc = remCalc;
     }
 })(window);
+//备注
 
 	//音乐暂停播放
     //musicStar.pause();

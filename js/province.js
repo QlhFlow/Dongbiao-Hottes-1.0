@@ -6,7 +6,7 @@ var ProvinceData = {
     init:function(provinceSelectID, citySelectID, agencyID){
         $.ajax({
             type:'get',
-            url:'http://fld.xingyuanauto.com/public/index.php/port/city/Dealer',
+            url:'https://xy.qichedaquan.com/Baowo/Flow/public/index.php/port/city/Dealer',
             success:function(msg){
                 //console.log(msg);
                 JSonData = JSON.parse(msg);
